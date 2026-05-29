@@ -83,17 +83,13 @@
   // card raised + highlighted, and an "All products" button below.
   function productLineup(t) {
     const byId = (id) => FLAVORS.find((f) => f.id === id);
-    const picks = [
-      { id: 'manzana' }, { id: 'cereza' }, { id: 'mango', feat: true },
-      { id: 'arandano' }, { id: 'maracuya' }
-    ];
-    const cards = picks.map((p) => {
-      const f = byId(p.id);
+    const picks = ['manzana', 'cereza', 'mango', 'arandano', 'maracuya'];
+    const cards = picks.map((id) => {
+      const f = byId(id);
       const name = lang === 'es' ? f.es : f.en;
       return `
-        <article class="pcard${p.feat ? ' pcard--feat' : ''}" style="--c:${f.color};--deep:${f.deep}">
+        <article class="pcard" style="--c:${f.color};--deep:${f.deep}">
           <div class="pcard__media">
-            ${f.isNew ? `<span class="pcard__new">${esc(t.flavors.new)}</span>` : ''}
             <img src="${f.img}" alt="${esc(name)}" />
           </div>
           <h3 class="pcard__name">${esc(name)}</h3>
@@ -339,7 +335,6 @@
       nav(t) +
       '<main>' +
         hero(t) +
-        marquee(t) +
         productLineup(t) +
         steps(t) +
         '<section class="sc" id="sabores"></section>' +
