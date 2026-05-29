@@ -69,6 +69,7 @@
       lineup: { tag: 'La línea', title: 'Explora nuestros sabores', all: 'Todos los sabores' },
       steps: {
         tag: '¿Cómo funcionan?',
+        title: 'Tres pasos para la explosión',
         items: [
           ['Muerde', 'La fina membrana cede al primer contacto.'],
           ['Estalla', 'El jugo de fruta real inunda tu paladar.'],
@@ -120,6 +121,7 @@
       lineup: { tag: 'The lineup', title: 'Explore our flavors', all: 'All products' },
       steps: {
         tag: 'How they work',
+        title: 'Three steps to the burst',
         items: [
           ['Bite', 'The thin membrane gives at the first touch.'],
           ['Burst', 'Real fruit juice floods your palate.'],
@@ -161,8 +163,8 @@
   };
 
   const CONTACT = {
-    whatsapp: '+593 99 000 0000',
-    waLink: 'https://wa.me/593990000000',
+    whatsapp: '+593 98 701 5059',
+    waLink: 'https://wa.me/593987015059',
     email: 'hola@kingpearl.ec',
     instagram: '@kingpearl.ec',
     igLink: 'https://instagram.com/kingpearl.ec'

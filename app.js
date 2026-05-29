@@ -27,7 +27,7 @@
   // --- markup builders ------------------------------------------------------
   function nav(t) {
     const links = [['#sabores', t.nav.sabores], ['#perlas', t.nav.perlas],
-      ['#usos', t.nav.usos], ['#nosotros', t.nav.nosotros], ['#contacto', t.nav.contacto]];
+      ['#nosotros', t.nav.nosotros], ['#contacto', t.nav.contacto]];
     const linkHtml = links.map(([h, l]) => `<a href="${h}">${esc(l)}</a>`).join('');
     return `
     <header class="nv" id="nav">
@@ -37,7 +37,6 @@
         <div class="nv__right">
           <div class="lang">
             <button data-lang="es" class="${lang === 'es' ? 'on' : ''}">ES</button>
-            <span>/</span>
             <button data-lang="en" class="${lang === 'en' ? 'on' : ''}">EN</button>
           </div>
           <a class="nv__cta" href="${CONTACT.waLink}" target="_blank" rel="noopener">${esc(t.cta.quote)}</a>
@@ -116,16 +115,21 @@
   }
 
   function steps(t) {
+    const colors = [FLAVOR_HEX[0], FLAVOR_HEX[1], FLAVOR_HEX[2]]; // orange · red · green
     const items = t.steps.items.map((s, i) => `
-      <li class="sstep reveal d${i + 1}" style="--c:${FLAVOR_HEX[i]}">
-        <span class="sstep__n">${String(i + 1).padStart(2, '0')}</span>
-        <div><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div>
-      </li>`).join('');
+      <article class="s2 reveal d${i + 1}" style="--c:${colors[i]}">
+        <div class="s2__badge"><span>${String(i + 1).padStart(2, '0')}</span></div>
+        <h3 class="s2__t">${esc(s[0])}</h3>
+        <p class="s2__d">${esc(s[1])}</p>
+      </article>`).join('');
     return `
     <section class="steps" id="perlas">
       <div class="wrap">
-        <span class="eyebrow reveal"><span class="sq"></span>${esc(t.steps.tag)}</span>
-        <ol class="steps__list">${items}</ol>
+        <div class="steps__head">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(t.steps.tag)}</span>
+          <h2 class="display steps__title reveal d1">${esc(t.steps.title)}</h2>
+        </div>
+        <div class="steps__grid">${items}</div>
       </div>
     </section>`;
   }
@@ -161,7 +165,7 @@
           <div class="sc__stage">
             <figure class="sc__tub">
               ${f.isNew ? `<span class="sc__new">${esc(t.flavors.new)}</span>` : ''}
-              <img src="${f.img}" alt="${esc(name)}" />
+              <img src="${f.img}" alt="${esc(name)}" loading="eager" decoding="async" fetchpriority="high" />
             </figure>
           </div>
           <div class="sc__info">
@@ -277,7 +281,6 @@
               <h4>${esc(c.explore)}</h4>
               <a href="#sabores">${esc(t.nav.sabores)}</a>
               <a href="#perlas">${esc(t.nav.perlas)}</a>
-              <a href="#usos">${esc(t.nav.usos)}</a>
               <a href="#nosotros">${esc(t.nav.nosotros)}</a>
             </div>
             <div class="ft__col">
@@ -340,7 +343,6 @@
         productLineup(t) +
         steps(t) +
         '<section class="sc" id="sabores"></section>' +
-        usos(t) +
         features(t) +
         about(t) +
         contact(t) +
@@ -356,5 +358,12 @@
     render();
   }
 
+  // Warm the browser cache so switching flavors in the showcase is instant.
+  function preloadImages() {
+    const urls = FLAVORS.map((f) => f.img).concat(['assets/hero-keyart.jpg']);
+    urls.forEach((src) => { const im = new Image(); im.decoding = 'async'; im.src = src; });
+  }
+
+  preloadImages();
   render();
 })();
