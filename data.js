@@ -66,7 +66,7 @@
         scroll: 'Desliza'
       },
       marquee: 'Explosión de sabor en cada bocado',
-      banner: { l1: 'Fruta', l2: 'real', r1: 'Explosión', r2: 'real', b1: '100%', b2: 'fruta', b3: 'Burbujas', b4: 'explosivas' },
+      lineup: { tag: 'La línea', title: 'Explora nuestros sabores', all: 'Todos los sabores' },
       steps: {
         tag: '¿Cómo funcionan?',
         items: [
@@ -117,7 +117,7 @@
         scroll: 'Scroll'
       },
       marquee: 'An explosion of flavor in every bite',
-      banner: { l1: 'Real', l2: 'fruit', r1: 'Real', r2: 'burst', b1: '100%', b2: 'fruit', b3: 'Bursting', b4: 'bubbles' },
+      lineup: { tag: 'The lineup', title: 'Explore our flavors', all: 'All products' },
       steps: {
         tag: 'How they work',
         items: [

@@ -80,18 +80,37 @@
     return `<div class="mq"><div class="mq__row">${row}${row}</div></div>`;
   }
 
-  function productBanner(t) {
-    const c = t.banner;
+  // Gong Cha-style product lineup: a row of gradient tiles with the center
+  // card raised + highlighted, and an "All products" button below.
+  function productLineup(t) {
+    const byId = (id) => FLAVORS.find((f) => f.id === id);
+    const picks = [
+      { id: 'manzana' }, { id: 'cereza' }, { id: 'mango', feat: true },
+      { id: 'arandano' }, { id: 'maracuya' }
+    ];
+    const cards = picks.map((p) => {
+      const f = byId(p.id);
+      const name = lang === 'es' ? f.es : f.en;
+      return `
+        <article class="pcard${p.feat ? ' pcard--feat' : ''}" style="--c:${f.color};--deep:${f.deep}">
+          <div class="pcard__media">
+            ${f.isNew ? `<span class="pcard__new">${esc(t.flavors.new)}</span>` : ''}
+            <img src="${f.img}" alt="${esc(name)}" />
+          </div>
+          <h3 class="pcard__name">${esc(name)}</h3>
+        </article>`;
+    }).join('');
     return `
-    <section class="pb">
-      <div class="pb__row wrap">
-        <h2 class="display pb__word pb__word--l reveal">${esc(c.l1)}<br />${esc(c.l2)}</h2>
-        <div class="pb__mid reveal d1">
-          <span class="seal seal--tr"><b>${esc(c.b1)}</b>${esc(c.b2)}</span>
-          <img class="pb__tub" src="assets/flavor-arandano.jpg" alt="King Pearl Arándano" />
-          <span class="seal seal--bl"><b>${esc(c.b3)}</b>${esc(c.b4)}</span>
+    <section class="pl">
+      <div class="wrap">
+        <div class="pl__head">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(t.lineup.tag)}</span>
+          <h2 class="display pl__title reveal d1">${esc(t.lineup.title)}</h2>
         </div>
-        <h2 class="display pb__word pb__word--r reveal d2">${esc(c.r1)}<br />${esc(c.r2)}</h2>
+        <div class="pl__row reveal d1">${cards}</div>
+        <div class="pl__cta reveal d2">
+          <a class="btn btn--accent pl__btn" href="#sabores">${esc(t.lineup.all)} <span aria-hidden="true">›</span></a>
+        </div>
       </div>
     </section>`;
   }
@@ -318,7 +337,7 @@
       '<main>' +
         hero(t) +
         marquee(t) +
-        productBanner(t) +
+        productLineup(t) +
         steps(t) +
         '<section class="sc" id="sabores"></section>' +
         usos(t) +
