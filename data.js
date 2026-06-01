@@ -185,8 +185,8 @@
   };
 
   const CONTACT = {
-    whatsapp: '+593 98 701 5059',
-    waLink: 'https://wa.me/593987015059',
+    whatsapp: '+593 98 523 8661',
+    waLink: 'https://wa.me/593985238661',
     email: 'hola@kingpearl.ec',
     instagram: '@kingpearl2026',
     igLink: 'https://instagram.com/kingpearl2026',
