@@ -160,9 +160,6 @@
     return `
       <div class="wrap">
         <div class="sc__head">
-          <span class="eyebrow" style="color:${txt}">
-            <span class="sq" style="background:${txt}"></span>${esc(t.flavors.tag)}
-          </span>
           <h2 class="display sc__title">${esc(t.flavors.title)}</h2>
           <span class="sc__count display">${String(activeFlavor + 1).padStart(2, '0')}<i style="color:${sub}">/07</i></span>
         </div>
