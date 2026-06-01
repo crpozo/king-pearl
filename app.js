@@ -264,13 +264,15 @@
           <a href="mailto:${CONTACT.email}">${esc(CONTACT.email)}</a><span class="ct__sep"></span>
           <a href="${CONTACT.igLink}" target="_blank" rel="noopener">${esc(CONTACT.instagram)}</a>
         </div>
-        <div class="ct__loc reveal d4">
+      </div>
+      <div class="wrap ct__loc reveal">
+        <figure class="ct__photo">
+          <img src="assets/local-entrada.jpg" alt="Fachada de Autos Sierra — entrada a King Pearl" loading="lazy" />
+          <figcaption>${esc(c.access)}</figcaption>
+        </figure>
+        <div class="ct__loc-info">
           <span class="ct__loc-eye">${esc(c.location)}</span>
           <p class="ct__addr">${esc(CONTACT.address)}</p>
-          <figure class="ct__photo">
-            <img src="assets/local-entrada.jpg" alt="Fachada de Autos Sierra — entrada a King Pearl" loading="lazy" />
-            <figcaption>${esc(c.access)}</figcaption>
-          </figure>
           <div class="ct__hours">
             <span class="ct__hours-lbl">${esc(c.hoursLabel)}</span>
             ${c.hoursLines.map((h) => `<span>${esc(h)}</span>`).join('')}
