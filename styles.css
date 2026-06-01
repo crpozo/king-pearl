@@ -312,10 +312,13 @@ body.no-motion .sc__info{animation:none}
 
 /* ---------------- RESPONSIVE ---------------- */
 @media(max-width:1080px){
+  .nv__inner{display:flex;justify-content:space-between}
   .nv__links{display:none}
   .nv__burger{display:flex}
   .nv__mob{display:flex;flex-direction:column;gap:16px;padding:22px 5vw 28px;background:var(--paper);
-    border-top:1px solid var(--line);font-weight:800;font-size:18px}
+    border-top:1px solid var(--line);font-weight:800;font-size:18px;color:var(--ink)}
+  .nv__mob a{color:var(--ink)}
+  .nv__mob a.btn--accent{color:#fff}
   .nv__mob .btn{align-self:flex-start}
   .ab__grid{grid-template-columns:1fr;gap:36px}
   .ab__art{order:-1}
