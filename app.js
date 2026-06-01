@@ -262,8 +262,20 @@
         <a class="btn btn--accent ct__wa reveal d3" href="${CONTACT.waLink}" target="_blank" rel="noopener">${waIcon}${esc(c.wa)}</a>
         <div class="ct__meta reveal d4">
           <a href="mailto:${CONTACT.email}">${esc(CONTACT.email)}</a><span class="ct__sep"></span>
-          <a href="${CONTACT.igLink}" target="_blank" rel="noopener">${esc(CONTACT.instagram)}</a><span class="ct__sep"></span>
-          <span>${esc(c.city)}</span>
+          <a href="${CONTACT.igLink}" target="_blank" rel="noopener">${esc(CONTACT.instagram)}</a>
+        </div>
+        <div class="ct__loc reveal d4">
+          <span class="ct__loc-eye">${esc(c.location)}</span>
+          <p class="ct__addr">${esc(CONTACT.address)}</p>
+          <p class="ct__access">${esc(c.access)}</p>
+          <div class="ct__hours">
+            <span class="ct__hours-lbl">${esc(c.hoursLabel)}</span>
+            ${c.hoursLines.map((h) => `<span>${esc(h)}</span>`).join('')}
+          </div>
+          <a class="btn btn--cream ct__dir" href="${CONTACT.mapsLink}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            ${esc(c.directions)}
+          </a>
         </div>
       </div>
       <footer class="ft">
@@ -286,7 +298,9 @@
             </div>
             <div class="ft__col">
               <h4>${esc(c.cities)}</h4>
-              <span>${esc(c.city)}</span>
+              <a href="${CONTACT.mapsLink}" target="_blank" rel="noopener">${esc(CONTACT.address)}</a>
+              <span>${esc(c.hoursLines[0])}</span>
+              <span>${esc(c.hoursLines[1])}</span>
             </div>
           </div>
         </div>

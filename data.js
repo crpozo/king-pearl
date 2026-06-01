@@ -104,8 +104,13 @@
         body: 'Distribuimos perlas explosivas King Pearl en todo el Ecuador. Escríbenos y cotiza al instante.',
         wa: 'Escríbenos por WhatsApp', email: 'Correo', city: 'Quito · Guayaquil · Cuenca',
         rights: 'Todos los derechos reservados.',
-        explore: 'Explora', cols_contact: 'Contacto', cities: 'Ciudades',
-        ftTag: 'Burbujas explosivas · Ecuador'
+        explore: 'Explora', cols_contact: 'Contacto', cities: 'Ubicación',
+        ftTag: 'Burbujas explosivas · Ecuador',
+        location: 'Visítanos en Quito',
+        access: 'Ingresa por Autos Sierra · 2.º piso · Amplios parqueaderos',
+        hoursLabel: 'Horarios',
+        hoursLines: ['Lun a Vie · 9:00 – 18:00 h', 'Sáb · 9:30 – 14:00 h'],
+        directions: 'Cómo llegar'
       }
     },
     en: {
@@ -156,8 +161,13 @@
         body: 'We distribute King Pearl bursting pearls across Ecuador. Write to us and get an instant quote.',
         wa: 'Message us on WhatsApp', email: 'Email', city: 'Quito · Guayaquil · Cuenca',
         rights: 'All rights reserved.',
-        explore: 'Explore', cols_contact: 'Contact', cities: 'Cities',
-        ftTag: 'Bursting bubbles · Ecuador'
+        explore: 'Explore', cols_contact: 'Contact', cities: 'Location',
+        ftTag: 'Bursting bubbles · Ecuador',
+        location: 'Visit us in Quito',
+        access: 'Enter through Autos Sierra · 2nd floor · Ample parking',
+        hoursLabel: 'Hours',
+        hoursLines: ['Mon–Fri · 9:00 – 18:00', 'Sat · 9:30 – 14:00'],
+        directions: 'Get directions'
       }
     }
   };
@@ -167,7 +177,9 @@
     waLink: 'https://wa.me/593987015059',
     email: 'hola@kingpearl.ec',
     instagram: '@kingpearl.ec',
-    igLink: 'https://instagram.com/kingpearl.ec'
+    igLink: 'https://instagram.com/kingpearl.ec',
+    address: 'Av. El Inca E4-239 y Guepi, norte de Quito',
+    mapsLink: 'https://maps.app.goo.gl/edLhCx89fENtCMgeA'
   };
 
   window.KP = { FLAVORS, PRICE, I18N, CONTACT };
