@@ -345,8 +345,8 @@
         hero(t) +
         productLineup(t) +
         '<section class="sc" id="sabores"></section>' +
-        features(t) +
         about(t) +
+        features(t) +
         contact(t) +
       '</main>';
     paintShowcase();
