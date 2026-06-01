@@ -227,7 +227,7 @@ body.no-motion .sc__tub{animation:none}
 .sc__info{animation:fadeUp .5s var(--ease) both}
 @keyframes fadeUp{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:none}}
 body.no-motion .sc__info{animation:none}
-.sc__name{font-size:clamp(40px,5.5vw,82px);margin-bottom:18px;line-height:1.0}
+.sc__name{font-size:clamp(30px,3.6vw,54px);margin-bottom:18px;line-height:1.04}
 .sc__desc{font-size:clamp(16px,1.45vw,21px);line-height:1.5;max-width:23em;margin-bottom:28px}
 .sc__buy{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .sc__price{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:34px;display:inline-flex;align-items:baseline;gap:8px}
