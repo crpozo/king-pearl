@@ -258,7 +258,7 @@ body.no-motion .sc__info{animation:none}
 .uc__d{color:var(--ink-soft);line-height:1.5;max-width:24em}
 
 /* ---------------- WHY / FEATURES (purple band) ---------------- */
-.feats{padding:116px 0;background:var(--green-deep);color:#fff}
+.feats{padding:116px 0;background:var(--brand);color:#fff}
 .feats__head{text-align:center;margin-bottom:52px}
 .feats__head .eyebrow{justify-content:center;color:#fff}
 .feats__head .eyebrow .sq{background:#fff}
