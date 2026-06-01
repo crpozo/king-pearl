@@ -176,9 +176,9 @@
     whatsapp: '+593 98 701 5059',
     waLink: 'https://wa.me/593987015059',
     email: 'hola@kingpearl.ec',
-    instagram: '@kingpearl.ec',
-    igLink: 'https://instagram.com/kingpearl.ec',
-    fbLink: 'https://facebook.com/kingpearl.ec',
+    instagram: '@KingPearl',
+    igLink: 'https://instagram.com/KingPearl',
+    fbLink: 'https://www.facebook.com/profile.php?id=61590114514296',
     address: 'Av. El Inca E4-239 y Guepi, norte de Quito',
     mapsLink: 'https://maps.app.goo.gl/edLhCx89fENtCMgeA'
   };
