@@ -26,7 +26,7 @@
 
   // --- markup builders ------------------------------------------------------
   function nav(t) {
-    const links = [['#sabores', t.nav.sabores], ['#perlas', t.nav.perlas],
+    const links = [['#sabores', t.nav.sabores],
       ['#nosotros', t.nav.nosotros], ['#contacto', t.nav.contacto]];
     const linkHtml = links.map(([h, l]) => `<a href="${h}">${esc(l)}</a>`).join('');
     return `
@@ -65,7 +65,7 @@
       <svg class="hero__wave" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
         <path fill="#FFFFFF" d="M0,130 L0,86 C420,86 520,86 612,86 C672,86 686,28 720,28 C754,28 768,86 828,86 C920,86 1020,86 1440,86 L1440,130 Z" />
       </svg>
-      <a class="hero__dot" href="#perlas" aria-label="scroll">
+      <a class="hero__dot" href="#sabores" aria-label="scroll">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>
       </a>
     </section>`;
@@ -285,7 +285,6 @@
             <div class="ft__col">
               <h4>${esc(c.explore)}</h4>
               <a href="#sabores">${esc(t.nav.sabores)}</a>
-              <a href="#perlas">${esc(t.nav.perlas)}</a>
               <a href="#nosotros">${esc(t.nav.nosotros)}</a>
             </div>
             <div class="ft__col">
@@ -345,7 +344,6 @@
       '<main>' +
         hero(t) +
         productLineup(t) +
-        steps(t) +
         '<section class="sc" id="sabores"></section>' +
         features(t) +
         about(t) +
