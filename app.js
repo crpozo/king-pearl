@@ -99,7 +99,6 @@
     <section class="pl">
       <div class="wrap">
         <div class="pl__head">
-          <span class="eyebrow reveal"><span class="sq"></span>${esc(t.lineup.tag)}</span>
           <h2 class="display pl__title reveal d1">${esc(t.lineup.title)}</h2>
         </div>
         <div class="pl__row reveal d1">${cards}</div>
@@ -161,7 +160,6 @@
       <div class="wrap">
         <div class="sc__head">
           <h2 class="display sc__title">${esc(t.flavors.title)}</h2>
-          <span class="sc__count display">${String(activeFlavor + 1).padStart(2, '0')}<i style="color:${sub}">/07</i></span>
         </div>
         <div class="sc__main">
           <div class="sc__stage">
@@ -256,13 +254,16 @@
     return `
     <section class="ct" id="contacto">
       <div class="wrap ct__inner">
-        <span class="eyebrow ct__eye"><span class="sq"></span>${esc(c.tag)}</span>
         <h2 class="display ct__h reveal d1">${esc(c.title)}</h2>
         <p class="ct__body reveal d2">${esc(c.body)}</p>
         <a class="btn btn--accent ct__wa reveal d3" href="${CONTACT.waLink}" target="_blank" rel="noopener">${waIcon}${esc(c.wa)}</a>
-        <div class="ct__meta reveal d4">
-          <a href="mailto:${CONTACT.email}">${esc(CONTACT.email)}</a><span class="ct__sep"></span>
-          <a href="${CONTACT.igLink}" target="_blank" rel="noopener">${esc(CONTACT.instagram)}</a>
+        <div class="ct__social reveal d4">
+          <a href="${CONTACT.fbLink}" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href="${CONTACT.igLink}" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
         </div>
       </div>
       <div class="wrap ct__loc reveal">

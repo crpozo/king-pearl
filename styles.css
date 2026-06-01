@@ -297,6 +297,12 @@ body.no-motion .sc__info{animation:none}
 .ct__meta{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:40px;font-weight:700;font-size:15px;color:rgba(255,255,255,.78)}
 .ct__meta a:hover{color:#fff}
 .ct__sep{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4)}
+/* social icons */
+.ct__social{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:38px}
+.ct__social a{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.12);color:#fff;transition:transform .25s var(--ease),background .25s,color .25s}
+.ct__social a:hover{transform:translateY(-3px);background:#fff;color:var(--green-ink)}
+.ct__social svg{width:23px;height:23px}
 /* location block — photo left, details right */
 .ct__loc{margin-top:64px;padding-top:56px;border-top:1px solid rgba(255,255,255,.16);
   display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(28px,4vw,60px);align-items:center;text-align:left}

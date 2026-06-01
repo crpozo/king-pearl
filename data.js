@@ -178,6 +178,7 @@
     email: 'hola@kingpearl.ec',
     instagram: '@kingpearl.ec',
     igLink: 'https://instagram.com/kingpearl.ec',
+    fbLink: 'https://facebook.com/kingpearl.ec',
     address: 'Av. El Inca E4-239 y Guepi, norte de Quito',
     mapsLink: 'https://maps.app.goo.gl/edLhCx89fENtCMgeA'
   };
