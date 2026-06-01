@@ -110,11 +110,20 @@
     </section>`;
   }
 
+  // bite (pearl) · burst (splash star) · repeat (loop)
+  const stepIcons = [
+    `<svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 7c6.5 8 11 12.6 11 19a11 11 0 0 1-22 0c0-6.4 4.5-11 11-19Z"/><path d="M19 26a5 5 0 0 0 5 5"/></svg>`,
+    `<svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l3.2 7.6L35 9l-2.6 8 8.1.5-6.6 5 6.6 5-8.1.5 2.6 8-7.8-3.6L24 43l-3.2-7.6L13 39l2.6-8-8.1-.5 6.6-5-6.6-5 8.1-.5L13 9l7.8 3.6L24 5Z"/></svg>`,
+    `<svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18a12 12 0 0 1 20-3"/><path d="M34 8v8h-8"/><path d="M34 30a12 12 0 0 1-20 3"/><path d="M14 40v-8h8"/></svg>`
+  ];
   function steps(t) {
     const colors = [FLAVOR_HEX[0], FLAVOR_HEX[1], FLAVOR_HEX[2]]; // orange · red · green
+    const lbl = lang === 'es' ? 'Paso' : 'Step';
     const items = t.steps.items.map((s, i) => `
       <article class="s2 reveal d${i + 1}" style="--c:${colors[i]}">
-        <div class="s2__badge"><span>${String(i + 1).padStart(2, '0')}</span></div>
+        <span class="s2__ghost" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+        <div class="s2__badge">${stepIcons[i]}</div>
+        <span class="s2__num">${lbl} ${String(i + 1).padStart(2, '0')}</span>
         <h3 class="s2__t">${esc(s[0])}</h3>
         <p class="s2__d">${esc(s[1])}</p>
       </article>`).join('');
