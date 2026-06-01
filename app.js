@@ -238,11 +238,6 @@
 
   function about(t) {
     const c = t.about;
-    const stats = c.stats.map((s, i) => `
-      <div class="st reveal d${i + 1}">
-        <span class="st__n display" style="color:${FLAVOR_HEX[[0, 4, 2][i]]}">${esc(s[0])}</span>
-        <span class="st__l">${esc(s[1])}</span>
-      </div>`).join('');
     return `
     <section class="ab" id="nosotros">
       <div class="wrap ab__grid">
@@ -253,7 +248,6 @@
         </div>
         <figure class="ab__art reveal d2"><img src="assets/hero-keyart.jpg" alt="King Pearl" /></figure>
       </div>
-      <div class="wrap ab__stats">${stats}</div>
     </section>`;
   }
 
