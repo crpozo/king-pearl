@@ -264,6 +264,9 @@
           <a href="${CONTACT.igLink}" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
           </a>
+          <a href="${CONTACT.ttLink}" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 8.3a6.5 6.5 0 0 1-3.9-1.3v6.6A5.6 5.6 0 1 1 11.5 8c.3 0 .6 0 .9.08v2.92a2.7 2.7 0 1 0 1.9 2.58V2h2.8A3.9 3.9 0 0 0 21 5.5V8.3Z"/></svg>
+          </a>
         </div>
       </div>
       <div class="wrap ct__loc reveal">
@@ -284,6 +287,7 @@
           </a>
         </div>
       </div>
+      <p class="wrap ct__thanks reveal">${esc(c.thanks)}</p>
       <footer class="ft">
         <div class="wrap ft__top">
           <div class="ft__brand">

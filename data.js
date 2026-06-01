@@ -115,7 +115,8 @@
         access: 'Ingresa por Autos Sierra · 2.º piso · Amplios parqueaderos',
         hoursLabel: 'Horarios',
         hoursLines: ['Lun a Vie · 9:00 – 18:00 h', 'Sáb · 9:30 – 14:00 h'],
-        directions: 'Cómo llegar'
+        directions: 'Cómo llegar',
+        thanks: 'Gracias por confiar en KING PEARL. Su apoyo y preferencia nos motivan a seguir innovando y ofreciendo productos de la mejor calidad para hacer crecer juntos cada proyecto y emprendimiento.'
       }
     },
     en: {
@@ -177,7 +178,8 @@
         access: 'Enter through Autos Sierra · 2nd floor · Ample parking',
         hoursLabel: 'Hours',
         hoursLines: ['Mon–Fri · 9:00 – 18:00', 'Sat · 9:30 – 14:00'],
-        directions: 'Get directions'
+        directions: 'Get directions',
+        thanks: 'Thank you for trusting KING PEARL. Your support and preference motivate us to keep innovating and offering the highest-quality products to grow every project and venture together.'
       }
     }
   };
@@ -189,6 +191,7 @@
     instagram: '@kingpearl2026',
     igLink: 'https://instagram.com/kingpearl2026',
     fbLink: 'https://www.facebook.com/profile.php?id=61590114514296',
+    ttLink: 'https://www.tiktok.com/@kingpearl32',
     address: 'Av. El Inca E4-239 y Guepi, norte de Quito',
     mapsLink: 'https://maps.app.goo.gl/edLhCx89fENtCMgeA'
   };
