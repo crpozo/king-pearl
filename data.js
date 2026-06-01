@@ -62,7 +62,12 @@
       hero: {
         kicker: 'Burbujas explosivas · Ecuador',
         line: ['Perlas que', 'Explotan'],
-        sub: 'El bubble tea es una refrescante explosión de sabor afrutado, con perlas líquidas que estallan en tu boca en cada sorbo.',
+        sub: [
+          'En KING PEARL transformamos cada bebida y postre en una experiencia única. Nuestras perlas explosivas están elaboradas con calidad, sabor y mucha innovación, ideales para cafeterías, confiterías, heladerías, restaurantes, locales de bebidas, postres, donas, emprendimientos y distribuidores que buscan ofrecer productos diferentes y llamativos.',
+          'Trabajamos para impulsar negocios que quieran destacar con nuevas tendencias, mejor presentación y sabores que sorprendan a sus clientes.',
+          'Gracias por ser parte de esta experiencia llena de color, creatividad y explosión de sabor.',
+          'En KING PEARL seguimos creciendo junto a ustedes.'
+        ],
         scroll: 'Desliza'
       },
       marquee: 'Explosión de sabor en cada bocado',
@@ -119,7 +124,12 @@
       hero: {
         kicker: 'Bursting bubbles · Ecuador',
         line: ['Pearls that', 'Burst'],
-        sub: 'Bubble tea is a refreshing explosion of fruity flavor, with liquid pearls that pop in your mouth with every sip.',
+        sub: [
+          'At KING PEARL we turn every drink and dessert into a unique experience. Our bursting pearls are crafted with quality, flavor and plenty of innovation — ideal for cafés, candy shops, ice-cream parlors, restaurants, drink and dessert spots, donut shops, startups and distributors looking to offer eye-catching, different products.',
+          'We work to boost businesses that want to stand out with new trends, better presentation and flavors that surprise their customers.',
+          'Thank you for being part of this experience full of color, creativity and an explosion of flavor.',
+          'At KING PEARL we keep growing together with you.'
+        ],
         scroll: 'Scroll'
       },
       marquee: 'An explosion of flavor in every bite',

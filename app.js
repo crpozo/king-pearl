@@ -59,7 +59,7 @@
       <img class="hero__cup hero__cup--r" src="${get('fresa').img}" alt="" aria-hidden="true" />
       <div class="hero__center">
         <h1 class="display hero__h">${esc(head[0])}<br />${esc(head[1])}</h1>
-        <p class="hero__sub">${esc(t.hero.sub)}</p>
+        <div class="hero__sub">${(Array.isArray(t.hero.sub) ? t.hero.sub : [t.hero.sub]).map((p) => `<p>${esc(p)}</p>`).join('')}</div>
         <a class="hero__cta" href="#sabores">${esc(t.cta.flavors)} <span aria-hidden="true">›</span></a>
       </div>
       <svg class="hero__wave" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">

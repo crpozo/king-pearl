@@ -131,9 +131,10 @@ body.no-motion .wafab{animation:none}
 /* ---------------- HERO (solid royal purple, centered serif, flanking tubs) ---------------- */
 .hero{position:relative;background:var(--brand);color:#fff;text-align:center;padding:150px 24px 120px;
   overflow:hidden;min-height:94vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
-.hero__center{position:relative;z-index:3;max-width:680px;margin:0 auto}
+.hero__center{position:relative;z-index:3;max-width:760px;margin:0 auto}
 .hero__h{font-size:clamp(44px,6.6vw,100px);color:#fff;line-height:1.08;margin-bottom:24px}
-.hero__sub{font-size:clamp(16px,1.4vw,21px);line-height:1.5;color:rgba(255,255,255,.86);max-width:30em;margin:0 auto 34px}
+.hero__sub{font-size:clamp(15px,1.2vw,18px);line-height:1.6;color:rgba(255,255,255,.88);max-width:50em;margin:0 auto 34px}
+.hero__sub p + p{margin-top:14px}
 .hero__cta{display:inline-flex;align-items:center;gap:.5em;background:#fff;color:var(--brand);font-weight:800;font-size:16px;
   padding:1.05em 2em;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s}
 .hero__cta:hover{transform:translateY(-3px);box-shadow:0 16px 36px -12px rgba(0,0,0,.4)}
