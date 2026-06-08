@@ -4,49 +4,49 @@
   const FLAVORS = [
     {
       id: 'maracuya', img: 'assets/flavor-maracuya.jpg',
-      es: 'Maracuyá', en: 'Passion Fruit',
+      es: 'Maracuyá', en: 'Passion Fruit', rating: 4.7, tagEs: 'Tropical', tagEn: 'Tropical',
       color: '#FF9E1B', deep: '#C56A00', glow: '#FFD27A', ink: '#3a1f00',
       descEs: 'Tropical, ácida y vibrante. Una explosión cítrica que despierta cada sentido.',
       descEn: 'Tropical, tangy and vibrant. A citrus burst that wakes up every sense.'
     },
     {
       id: 'cereza', img: 'assets/flavor-cereza.jpg',
-      es: 'Cereza', en: 'Cherry',
+      es: 'Cereza', en: 'Cherry', rating: 4.6, tagEs: 'Fruto rojo', tagEn: 'Red fruit',
       color: '#D7263D', deep: '#8E0E22', glow: '#FF6B7E', ink: '#3a0008',
       descEs: 'Dulce y profunda, con el carácter intenso de la cereza bien madura.',
       descEn: 'Sweet and deep, with the bold character of perfectly ripe cherry.'
     },
     {
       id: 'manzana', img: 'assets/flavor-manzana.jpg',
-      es: 'Manzana Verde', en: 'Green Apple',
+      es: 'Manzana Verde', en: 'Green Apple', rating: 4.5, tagEs: 'Fresco', tagEn: 'Fresh',
       color: '#7AC70C', deep: '#4F8A00', glow: '#C2F56B', ink: '#1c3300',
       descEs: 'Fresca y crujiente. El verde más refrescante de toda la corona.',
       descEn: 'Fresh and crisp. The most refreshing green in the whole crown.'
     },
     {
       id: 'frambuesa', img: 'assets/flavor-frambuesa.jpg',
-      es: 'Frambuesa', en: 'Raspberry',
+      es: 'Frambuesa', en: 'Raspberry', rating: 4.8, tagEs: 'Fruto rojo', tagEn: 'Red fruit',
       color: '#E8245A', deep: '#A40C39', glow: '#FF7AA3', ink: '#3a0016',
       descEs: 'Intensa y jugosa, con ese toque agridulce absolutamente irresistible.',
       descEn: 'Intense and juicy, with that irresistible sweet-tart touch.'
     },
     {
       id: 'arandano', img: 'assets/flavor-arandano.jpg',
-      es: 'Arándano', en: 'Blueberry',
+      es: 'Arándano', en: 'Blueberry', rating: 4.6, tagEs: 'Fruto rojo', tagEn: 'Berry',
       color: '#7B2FBF', deep: '#4A1580', glow: '#B57BEE', ink: '#1f0040',
       descEs: 'Misteriosa y elegante. Antioxidante y llena de color verdaderamente real.',
       descEn: 'Mysterious and elegant. Antioxidant-rich and full of truly royal color.'
     },
     {
       id: 'fresa', img: 'assets/flavor-fresa.jpg',
-      es: 'Fresa', en: 'Strawberry',
+      es: 'Fresa', en: 'Strawberry', rating: 4.9, tagEs: 'Fruto rojo', tagEn: 'Red fruit',
       color: '#FF3B5C', deep: '#C00E2E', glow: '#FF8198', ink: '#3a0010',
       descEs: 'El clásico que nunca falla. Dulce, roja y perfecta en cada sorbo.',
       descEn: 'The classic that never fails. Sweet, red and perfect in every sip.'
     },
     {
       id: 'mango', img: 'assets/flavor-mango.jpg',
-      es: 'Mango', en: 'Mango', isNew: true,
+      es: 'Mango', en: 'Mango', isNew: true, rating: 5.0, tagEs: 'Tropical', tagEn: 'Tropical',
       color: '#FFA516', deep: '#C26C00', glow: '#FFD27A', ink: '#3a2000',
       descEs: 'Nuestro nuevo rey. Carnoso, dulce y absolutamente tropical.',
       descEn: 'Our newest king. Fleshy, sweet and absolutely tropical.'
@@ -71,7 +71,16 @@
         scroll: 'Desliza'
       },
       marquee: 'Explosión de sabor en cada bocado',
-      lineup: { tag: 'La línea', title: 'Explora nuestros sabores', all: 'Todos los sabores' },
+      lineup: {
+        tag: 'La línea', title: 'Explora nuestros sabores', all: 'Todos los sabores',
+        add: 'Cotiza este sabor', refr: 'Mantener refrigerado', count: 'sabores',
+        filters: [
+          { id: 'all', label: 'Todos' },
+          { id: 'tropical', label: 'Tropicales' },
+          { id: 'berry', label: 'Frutos rojos' },
+          { id: 'new', label: 'Nuevos' }
+        ]
+      },
       steps: {
         tag: '¿Cómo funcionan?',
         title: 'Tres pasos para la explosión',
@@ -134,7 +143,16 @@
         scroll: 'Scroll'
       },
       marquee: 'An explosion of flavor in every bite',
-      lineup: { tag: 'The lineup', title: 'Explore our flavors', all: 'All products' },
+      lineup: {
+        tag: 'The lineup', title: 'Explore our flavors', all: 'All products',
+        add: 'Get a quote', refr: 'Keep refrigerated', count: 'flavors',
+        filters: [
+          { id: 'all', label: 'All' },
+          { id: 'tropical', label: 'Tropical' },
+          { id: 'berry', label: 'Red fruits' },
+          { id: 'new', label: 'New' }
+        ]
+      },
       steps: {
         tag: 'How they work',
         title: 'Three steps to the burst',

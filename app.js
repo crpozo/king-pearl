@@ -9,6 +9,15 @@
 
   let lang = 'es';
   let activeFlavor = 0;
+  let lineupFilter = 'all';
+
+  // Which flavor ids belong to each lineup filter pill.
+  const LINEUP_CATS = {
+    all: FLAVORS.map((f) => f.id),
+    tropical: ['maracuya', 'mango'],
+    berry: ['cereza', 'frambuesa', 'arandano', 'fresa'],
+    new: FLAVORS.filter((f) => f.isNew).map((f) => f.id)
+  };
 
   // --- SVG icon sets --------------------------------------------------------
   const usoIcons = [
@@ -79,34 +88,109 @@
     return `<div class="mq"><div class="mq__row">${row}${row}</div></div>`;
   }
 
-  // Gong Cha-style product lineup: a row of gradient tiles with the center
-  // card raised + highlighted, and an "All products" button below.
+  const arrowIcon = (dir) =>
+    `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${dir === 'prev' ? 'M15 6l-6 6 6 6' : 'M9 6l6 6-6 6'}"/></svg>`;
+
+  // Five-star rating: a grey base row with a colored layer clipped to %.
+  function starRow(rating) {
+    const star = '<svg class="star" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.6l2.47 5.01 5.53.8-4 3.9.94 5.5L10 14.2l-4.95 2.6.94-5.5-4-3.9 5.53-.8L10 1.6Z"/></svg>';
+    const five = star.repeat(5);
+    const pct = Math.max(0, Math.min(100, (rating / 5) * 100));
+    return `<span class="stars" role="img" aria-label="${rating} / 5">
+        <span class="stars__bg">${five}</span>
+        <span class="stars__fg" style="width:${pct}%">${five}</span>
+        <span class="stars__num">${rating.toFixed(1)}</span>
+      </span>`;
+  }
+
+  // One flavor card — image with hover CTA, rating, category tag, name.
+  function lineupCard(f, t) {
+    const name = lang === 'es' ? f.es : f.en;
+    const tag = lang === 'es' ? f.tagEs : f.tagEn;
+    return `
+      <article class="pcard" style="--c:${f.color};--deep:${f.deep}">
+        <div class="pcard__media">
+          ${f.isNew ? `<span class="pcard__badge">${esc(t.flavors.new)}</span>` : ''}
+          <img src="${f.img}" alt="${esc(name)}" loading="lazy" decoding="async" />
+          <a class="pcard__add" href="${CONTACT.waLink}" target="_blank" rel="noopener">${esc(t.lineup.add)}</a>
+        </div>
+        ${starRow(f.rating)}
+        <span class="pcard__tag">${esc(tag)}</span>
+        <h3 class="pcard__name">${esc(name)}</h3>
+      </article>`;
+  }
+
+  // Cards + subline for the currently selected filter.
+  function lineupCardsHtml(t) {
+    const ids = LINEUP_CATS[lineupFilter] || LINEUP_CATS.all;
+    return ids.map((id) => lineupCard(FLAVORS.find((f) => f.id === id), t)).join('');
+  }
+  function lineupSub(t) {
+    const n = (LINEUP_CATS[lineupFilter] || LINEUP_CATS.all).length;
+    return `${n} ${esc(t.lineup.count)} · ${esc(t.lineup.refr)} <span class="pl__snow" aria-hidden="true">❄</span>`;
+  }
+
+  // OLIPOP "Shop our collections"-style selector: filter pills, a contextual
+  // subline, and a scroll-snap carousel of rated cards with prev/next arrows.
   function productLineup(t) {
-    const byId = (id) => FLAVORS.find((f) => f.id === id);
-    const picks = ['manzana', 'cereza', 'mango', 'arandano', 'maracuya'];
-    const cards = picks.map((id) => {
-      const f = byId(id);
-      const name = lang === 'es' ? f.es : f.en;
-      return `
-        <article class="pcard" style="--c:${f.color};--deep:${f.deep}">
-          <div class="pcard__media">
-            <img src="${f.img}" alt="${esc(name)}" />
-          </div>
-          <h3 class="pcard__name">${esc(name)}</h3>
-        </article>`;
-    }).join('');
+    const pills = t.lineup.filters.map((fl) =>
+      `<button class="pl__pill${fl.id === lineupFilter ? ' on' : ''}" data-filter="${fl.id}">${esc(fl.label)}</button>`).join('');
     return `
     <section class="pl">
       <div class="wrap">
         <div class="pl__head">
           <h2 class="display pl__title reveal d1">${esc(t.lineup.title)}</h2>
-        </div>
-        <div class="pl__row reveal d1">${cards}</div>
-        <div class="pl__cta reveal d2">
-          <a class="btn btn--accent pl__btn" href="#sabores">${esc(t.lineup.all)} <span aria-hidden="true">›</span></a>
+          <div class="pl__filters reveal d1" role="tablist">${pills}</div>
+          <p class="pl__sub reveal d1" id="plSub">${lineupSub(t)}</p>
         </div>
       </div>
+      <div class="pl__deck reveal d2">
+        <button class="pl__nav pl__nav--prev" id="plPrev" aria-label="Anterior">${arrowIcon('prev')}</button>
+        <div class="pl__row" id="plRow">${lineupCardsHtml(t)}</div>
+        <button class="pl__nav pl__nav--next" id="plNext" aria-label="Siguiente">${arrowIcon('next')}</button>
+      </div>
+      <div class="wrap pl__cta reveal d2">
+        <a class="btn btn--accent pl__btn" href="#sabores">${esc(t.lineup.all)} <span aria-hidden="true">›</span></a>
+      </div>
     </section>`;
+  }
+
+  function wireLineup() {
+    const t = I18N[lang];
+    const row = document.getElementById('plRow');
+    const sub = document.getElementById('plSub');
+    const prev = document.getElementById('plPrev');
+    const next = document.getElementById('plNext');
+    if (!row) return;
+
+    document.querySelectorAll('[data-filter]').forEach((b) => {
+      b.addEventListener('click', () => {
+        lineupFilter = b.dataset.filter;
+        document.querySelectorAll('[data-filter]').forEach((x) => x.classList.toggle('on', x === b));
+        row.innerHTML = lineupCardsHtml(t);
+        sub.innerHTML = lineupSub(t);
+        row.scrollTo({ left: 0, behavior: 'smooth' });
+        syncArrows();
+      });
+    });
+
+    const step = () => {
+      const card = row.querySelector('.pcard');
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 20;
+      return card ? card.offsetWidth + gap : row.clientWidth * 0.8;
+    };
+    const syncArrows = () => {
+      const max = row.scrollWidth - row.clientWidth - 2;
+      const overflow = max > 4;
+      [prev, next].forEach((b) => b.classList.toggle('pl__nav--hide', !overflow));
+      prev.disabled = row.scrollLeft <= 2;
+      next.disabled = row.scrollLeft >= max;
+    };
+    prev.addEventListener('click', () => row.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next.addEventListener('click', () => row.scrollBy({ left: step(), behavior: 'smooth' }));
+    row.addEventListener('scroll', syncArrows, { passive: true });
+    window.addEventListener('resize', syncArrows, { passive: true });
+    syncArrows();
   }
 
   // bite (pearl) · burst (splash star) · repeat (loop)
@@ -215,13 +299,24 @@
     </section>`;
   }
 
+  // OLIPOP "Our Mission"-style zig-zag: alternating illustration + copy rows.
   function features(t) {
-    const cards = t.features.items.map((it, i) => `
-      <div class="feat reveal d${i + 1}">
-        <span class="feat__ic">${featIcons[i]}</span>
-        <h3 class="feat__t">${esc(it.t)}</h3>
-        <p class="feat__d">${esc(it.d)}</p>
-      </div>`).join('');
+    const accents = ['#FF9E1B', '#E8245A', '#7B2FBF', '#43AC28'];
+    const rows = t.features.items.map((it, i) => `
+      <article class="frow${i % 2 ? ' frow--rev' : ''} reveal d${(i % 2) + 1}" style="--c:${accents[i % accents.length]}">
+        <figure class="frow__art">
+          <span class="frow__disc"></span>
+          <span class="frow__ic">${featIcons[i]}</span>
+          <span class="frow__pearl frow__pearl--a"></span>
+          <span class="frow__pearl frow__pearl--b"></span>
+          <span class="frow__pearl frow__pearl--c"></span>
+        </figure>
+        <div class="frow__copy">
+          <span class="frow__n display">${String(i + 1).padStart(2, '0')}</span>
+          <h3 class="frow__t">${esc(it.t)}</h3>
+          <p class="frow__d">${esc(it.d)}</p>
+        </div>
+      </article>`).join('');
     return `
     <section class="feats">
       <div class="wrap">
@@ -229,7 +324,7 @@
           <span class="eyebrow reveal"><span class="sq"></span>${esc(t.features.tag)}</span>
           <h2 class="display feats__title reveal d1">${esc(t.features.title)}</h2>
         </div>
-        <div class="feats__grid">${cards}</div>
+        <div class="feats__rows">${rows}</div>
       </div>
     </section>`;
   }
@@ -365,6 +460,7 @@
         contact(t) +
       '</main>';
     paintShowcase();
+    wireLineup();
     wireNav();
     wireReveals();
   }
