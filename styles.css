@@ -499,7 +499,7 @@ body.no-motion .frow__pearl{animation:none}
   .ct__loc-info{align-items:center}
   .ct__hours{align-items:center}
 }
-.ft{margin-top:80px;border-top:1px solid rgba(255,255,255,.16);padding:46px 0 30px}
+.ft{background:var(--green-deep);color:#fff;padding:64px 0 30px}
 .ft__top{display:grid;grid-template-columns:1.2fr 2fr;gap:40px;padding-bottom:38px}
 .ft__brand{display:flex;flex-direction:column;gap:12px}
 .ft__logo{height:54px;width:auto;align-self:flex-start;object-fit:contain}
