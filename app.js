@@ -35,8 +35,8 @@
 
   // --- markup builders ------------------------------------------------------
   function nav(t) {
-    const links = [['#sabores', t.nav.sabores],
-      ['#nosotros', t.nav.nosotros], ['#contacto', t.nav.contacto]];
+    const links = [['#sabores', t.nav.sabores], ['#usos', t.nav.usos],
+      ['#recetas', t.nav.recetas], ['#nosotros', t.nav.nosotros], ['#contacto', t.nav.contacto]];
     const linkHtml = links.map(([h, l]) => `<a href="${h}">${esc(l)}</a>`).join('');
     return `
     <header class="nv" id="nav">
@@ -329,6 +329,141 @@
     </section>`;
   }
 
+  const checkIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`;
+
+  // "Qué son las perlas explosivas" — intro copy + benefits checklist.
+  function whatare(t) {
+    const c = t.whatare;
+    const benefits = c.benefits.map((b) => `<li><span class="wa2__ck">${checkIcon}</span>${esc(b)}</li>`).join('');
+    return `
+    <section class="wa2" id="perlas">
+      <div class="wrap wa2__grid">
+        <div class="wa2__copy">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(c.tag)}</span>
+          <h2 class="display wa2__title reveal d1">${esc(c.title)}</h2>
+          <p class="wa2__body reveal d2">${esc(c.body)}</p>
+        </div>
+        <div class="wa2__card reveal d2">
+          <h3 class="wa2__bt">${esc(c.benefitsTitle)}</h3>
+          <ul class="wa2__benefits">${benefits}</ul>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  // "Cómo usarlas" — quantity table, serving steps, best drinks/desserts.
+  function usage(t) {
+    const c = t.usage;
+    const qty = c.qty.map((q) => `<li><span>${esc(q[0])}</span><b>${esc(q[1])}</b></li>`).join('');
+    const serve = c.serve.map((s) => `<li><span class="use__ck">${checkIcon}</span>${esc(s)}</li>`).join('');
+    const chips = (arr) => arr.map((x) => `<span class="use__chip">${esc(x)}</span>`).join('');
+    return `
+    <section class="use" id="usos">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(c.tag)}</span>
+          <h2 class="display sec-title reveal d1">${esc(c.title)}</h2>
+          <p class="sec-intro reveal d2">${esc(c.intro)}</p>
+        </div>
+        <div class="use__grid">
+          <div class="use__card reveal d1">
+            <h3 class="use__ct">${esc(c.qtyTitle)}</h3>
+            <ul class="use__qty">${qty}</ul>
+            <p class="use__note">${esc(c.qtyNote)}</p>
+          </div>
+          <div class="use__card reveal d2">
+            <h3 class="use__ct">${esc(c.serveTitle)}</h3>
+            <ul class="use__serve">${serve}</ul>
+          </div>
+          <div class="use__card reveal d1">
+            <h3 class="use__ct">${esc(c.drinksTitle)}</h3>
+            <div class="use__chips">${chips(c.drinks)}</div>
+          </div>
+          <div class="use__card reveal d2">
+            <h3 class="use__ct">${esc(c.dessertsTitle)}</h3>
+            <div class="use__chips">${chips(c.desserts)}</div>
+          </div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  // "Conservación y manipulación" — checklist of storage tips.
+  function care(t) {
+    const c = t.care;
+    const items = c.items.map((it, i) => `
+      <li class="care__item reveal d${(i % 3) + 1}"><span class="care__ck">${checkIcon}</span>${esc(it)}</li>`).join('');
+    return `
+    <section class="care">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(c.tag)}</span>
+          <h2 class="display sec-title reveal d1">${esc(c.title)}</h2>
+          <p class="sec-intro reveal d2">${esc(c.body)}</p>
+        </div>
+        <ul class="care__grid">${items}</ul>
+        <p class="care__note reveal">${esc(c.note)}</p>
+      </div>
+    </section>`;
+  }
+
+  // "Recetas King Pearl" — recipe cards with ingredients + method.
+  function recipes(t) {
+    const c = t.recipes;
+    const catLabel = { drink: c.catDrink, dessert: c.catDessert, cocktail: c.catCocktail };
+    const cards = c.list.map((r, i) => {
+      const ing = r.ing.map((x) => `<li>${esc(x)}</li>`).join('');
+      const steps = r.steps.map((x) => `<li>${esc(x)}</li>`).join('');
+      return `
+        <article class="rec__card reveal d${(i % 3) + 1}" data-cat="${r.cat}">
+          <span class="rec__badge">${esc(catLabel[r.cat] || '')}</span>
+          <h3 class="rec__name">${esc(r.name)}</h3>
+          <div class="rec__block">
+            <h4 class="rec__lbl">${esc(c.ingLabel)}</h4>
+            <ul class="rec__ing">${ing}</ul>
+          </div>
+          <div class="rec__block">
+            <h4 class="rec__lbl">${esc(c.stepLabel)}</h4>
+            <ol class="rec__steps">${steps}</ol>
+          </div>
+        </article>`;
+    }).join('');
+    return `
+    <section class="rec" id="recetas">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(c.tag)}</span>
+          <h2 class="display sec-title reveal d1">${esc(c.title)}</h2>
+          <p class="sec-intro reveal d2">${esc(c.intro)}</p>
+        </div>
+        <div class="rec__grid">${cards}</div>
+        ${c.note ? `<p class="rec__note reveal">${esc(c.note)}</p>` : ''}
+      </div>
+    </section>`;
+  }
+
+  // "Beneficios de trabajar con King Pearl" — B2B value cards.
+  function biz(t) {
+    const c = t.biz;
+    const colors = ['#FF9E1B', '#D7263D', '#7AC70C', '#E8245A', '#7B2FBF', '#FF3B5C'];
+    const cards = c.items.map((it, i) => `
+      <article class="biz__card reveal d${(i % 3) + 1}" style="--c:${colors[i % colors.length]}">
+        <span class="biz__n display">${String(i + 1).padStart(2, '0')}</span>
+        <h3 class="biz__t">${esc(it.t)}</h3>
+        <p class="biz__d">${esc(it.d)}</p>
+      </article>`).join('');
+    return `
+    <section class="biz">
+      <div class="wrap">
+        <div class="sec-head sec-head--light">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(c.tag)}</span>
+          <h2 class="display sec-title reveal d1">${esc(c.title)}</h2>
+        </div>
+        <div class="biz__grid">${cards}</div>
+      </div>
+    </section>`;
+  }
+
   function about(t) {
     const c = t.about;
     return `
@@ -455,8 +590,13 @@
         hero(t) +
         productLineup(t) +
         '<section class="sc" id="sabores"></section>' +
+        whatare(t) +
+        usage(t) +
+        care(t) +
+        recipes(t) +
         about(t) +
         features(t) +
+        biz(t) +
         contact(t) +
       '</main>';
     paintShowcase();

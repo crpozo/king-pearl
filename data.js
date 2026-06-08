@@ -57,7 +57,7 @@
 
   const I18N = {
     es: {
-      nav: { sabores: 'Sabores', perlas: 'Las Perlas', usos: 'Usos', nosotros: 'Nosotros', contacto: 'Contacto' },
+      nav: { sabores: 'Sabores', perlas: 'Las Perlas', usos: 'Usos', recetas: 'Recetas', nosotros: 'Nosotros', contacto: 'Contacto' },
       cta: { quote: 'Cotiza ahora', flavors: 'Ver sabores', wa: 'WhatsApp' },
       hero: {
         kicker: 'Burbujas explosivas · Ecuador',
@@ -108,6 +108,100 @@
           { t: 'Para bebidas, postres y más', d: 'Versátiles para cualquier creación.' }
         ]
       },
+      whatare: {
+        tag: '¿Qué son?', title: 'Qué son las perlas explosivas',
+        body: 'Las perlas explosivas son esferas rellenas de jugo o bebida saborizada que explotan en la boca al morderlas, brindando una experiencia única de sabor, textura y diversión. Son ideales para bebidas, bubble tea, yogures, helados, postres, cócteles y más.',
+        benefitsTitle: 'Beneficios de las perlas explosivas',
+        benefits: [
+          'Aportan una experiencia innovadora y diferente.',
+          'Mejoran la presentación de bebidas y postres.',
+          'Atraen más clientes por su apariencia y sabor.',
+          'Disponibles en varios sabores y colores.',
+          'Fáciles de preparar y utilizar.',
+          'Ideales para emprendimientos, cafeterías y negocios de bebidas.',
+          'Incrementan el valor y atractivo de los productos.'
+        ]
+      },
+      usage: {
+        tag: 'Cómo usarlas', title: 'Cómo usarlas correctamente',
+        intro: 'Las perlas explosivas deben mantenerse refrigeradas y servirse directamente sobre la bebida o postre. Usa cucharas o utensilios plásticos para conservar su textura y evitar que se revienten o contaminen. Limpia la cuchara después de servir y no la mezcles con otro envase sin limpiarla antes.',
+        qtyTitle: 'Cantidad recomendada',
+        qty: [['Bebidas medianas', '20 – 30 g'], ['Bebidas grandes', '30 – 50 g'], ['Postres y helados', '30 – 50 g']],
+        qtyNote: 'La cantidad puede ajustarse según el gusto del cliente.',
+        serveTitle: '¿Cómo servirlas?',
+        serve: [
+          'Escurre ligeramente el líquido antes de servir.',
+          'Colócalas al final de la preparación para mantener su frescura y textura.',
+          'Sirve con sorbetes anchos en bebidas tipo bubble tea.',
+          'Mantén siempre refrigeradas después de abrir el envase.'
+        ],
+        drinksTitle: 'Mejores bebidas',
+        drinks: ['Bubble tea', 'Té frío', 'Granizados', 'Smoothies', 'Limonadas', 'Yogurt drinks', 'Cócteles y mocktails', 'Bebidas frutales'],
+        dessertsTitle: 'Mejores postres',
+        desserts: ['Helados', 'Waffles', 'Crepes', 'Yogurt con frutas', 'Cheesecake', 'Ensaladas de frutas', 'Pasteles', 'Gelatinas']
+      },
+      care: {
+        tag: 'Conservación', title: 'Conservación y manipulación',
+        body: 'Para mantener la calidad, sabor y textura de las perlas explosivas, sigue estas recomendaciones:',
+        items: [
+          'Mantén el producto refrigerado entre 2 °C y 8 °C.',
+          'Evita la exposición directa al sol o altas temperaturas.',
+          'Una vez abierto, conserva el envase siempre bien tapado.',
+          'Utiliza utensilios limpios y secos para manipular el producto.',
+          'No mezcles con agua caliente.',
+          'Consume en el menor tiempo posible tras abrir.',
+          'No congeles: puede afectar la textura de las perlas.',
+          'Mantén en un lugar limpio y libre de contaminación.',
+          'No viertas líquidos dentro del frasco.'
+        ],
+        note: 'Una correcta conservación mantiene la frescura, el sabor y la experiencia explosiva del producto.'
+      },
+      recipes: {
+        tag: 'Recetas', title: 'Recetas King Pearl',
+        intro: 'Las perlas explosivas funcionan mejor en bebidas frías y postres frescos: mejoran la presentación, aumentan el valor del producto y ofrecen una experiencia única al cliente.',
+        ingLabel: 'Ingredientes', stepLabel: 'Preparación',
+        catDrink: 'Bebida', catDessert: 'Postre', catCocktail: 'Coctel',
+        list: [
+          { name: 'Bubble Tea Clásico Frutal', cat: 'drink',
+            ing: ['250 ml de té frío', '30 ml de jarabe de frutas', 'Hielo', '60 g de perlas explosivas'],
+            steps: ['Coloca hielo en el vaso.', 'Agrega el té y el jarabe.', 'Mezcla bien.', 'Añade las perlas al final.', 'Sirve con sorbete ancho.'] },
+          { name: 'Limonada Explosiva', cat: 'drink',
+            ing: ['Jugo de 2 limones', '300 ml de agua fría', 'Azúcar al gusto', 'Hielo', '50 g de perlas de fresa o maracuyá'],
+            steps: ['Mezcla limón, agua y azúcar.', 'Agrega hielo.', 'Incorpora las perlas al final.', 'Decora con una rodaja de limón.'] },
+          { name: 'Smoothie Tropical Premium', cat: 'drink',
+            ing: ['1 taza de mango congelado', '½ taza de piña', '200 ml de yogurt o leche', 'Hielo', '60 g de perlas explosivas'],
+            steps: ['Licúa las frutas con yogurt y hielo.', 'Sirve en vaso alto.', 'Añade las perlas encima.'] },
+          { name: 'Granizado King Pearl', cat: 'drink',
+            ing: ['300 ml de bebida frutal', 'Hielo triturado', 'Jarabe al gusto', '70 g de perlas explosivas'],
+            steps: ['Licúa el hielo con la bebida.', 'Sirve en vaso grande.', 'Agrega las perlas y crema batida opcional.'] },
+          { name: 'Mojito Explosivo', cat: 'cocktail',
+            ing: ['Hierbabuena', 'Jugo de limón', 'Agua mineral', 'Ron', 'Hielo', '50 g de perlas explosivas'],
+            steps: ['Machaca hierbabuena y limón.', 'Agrega hielo y ron.', 'Completa con agua mineral.', 'Añade las perlas al final.'] },
+          { name: 'Yogurt con Perlas', cat: 'dessert',
+            ing: ['Yogurt griego', 'Frutas picadas', 'Granola', '40 g de perlas explosivas'],
+            steps: ['Coloca yogurt en un vaso.', 'Agrega frutas y granola.', 'Decora con perlas explosivas.'] },
+          { name: 'Waffle Premium', cat: 'dessert',
+            ing: ['Waffle preparado', 'Helado', 'Salsa de chocolate', '50 g de perlas explosivas'],
+            steps: ['Sirve el waffle caliente.', 'Añade helado y salsa.', 'Decora con perlas explosivas.'] },
+          { name: 'Cheesecake Decorativo', cat: 'dessert',
+            ing: ['Cheesecake individual', 'Salsa de frutas', '30 g de perlas explosivas'],
+            steps: ['Decora el cheesecake con salsa.', 'Coloca las perlas encima antes de servir.'] },
+          { name: 'Frappé Explosivo', cat: 'drink',
+            ing: ['250 ml de leche', 'Café o chocolate', 'Hielo', 'Crema batida', '60 g de perlas explosivas'],
+            steps: ['Licúa leche, hielo y saborizante.', 'Sirve frío.', 'Decora con crema y perlas.'] }
+        ]
+      },
+      biz: {
+        tag: 'Alianzas', title: 'Beneficios de trabajar con King Pearl',
+        items: [
+          { t: 'Soporte y asesoría', d: 'Acompañamiento constante para ayudarte a crecer, mejorar tus productos y ofrecer una mejor experiencia.' },
+          { t: 'Promociones y estrategias', d: 'Promociones especiales y campañas que impulsan las ventas y atraen nuevos clientes.' },
+          { t: 'Activaciones de marca', d: 'Apoyo con activaciones en punto de venta, degustaciones y eventos para dar visibilidad a tu negocio.' },
+          { t: 'Material POP', d: 'Banners, stickers, menús, exhibidores y material visual para fortalecer tu imagen de marca.' },
+          { t: 'Innovación constante', d: 'Nuevos sabores, ideas y tendencias para que siempre ofrezcas productos atractivos.' },
+          { t: 'Calidad y confianza', d: 'Productos de excelente calidad que garantizan sabor, frescura y satisfacción en cada preparación.' }
+        ]
+      },
       about: {
         tag: 'Nosotros', a: 'LA CORONA DE LAS', b: 'PERLAS EN ECUADOR',
         body: 'King Pearl nació para llevar la explosión del bubble tea a cada rincón del país. Seleccionamos fruta real y la encerramos en perlas listas para coronar las creaciones de cafeterías, heladerías y barras de todo el Ecuador.',
@@ -129,7 +223,7 @@
       }
     },
     en: {
-      nav: { sabores: 'Flavors', perlas: 'The Pearls', usos: 'Uses', nosotros: 'About', contacto: 'Contact' },
+      nav: { sabores: 'Flavors', perlas: 'The Pearls', usos: 'Uses', recetas: 'Recipes', nosotros: 'About', contacto: 'Contact' },
       cta: { quote: 'Get a quote', flavors: 'See flavors', wa: 'WhatsApp' },
       hero: {
         kicker: 'Bursting bubbles · Ecuador',
@@ -178,6 +272,100 @@
           { t: 'High-quality ingredients', d: 'Selected for a consistent taste.' },
           { t: 'Keep refrigerated', d: 'Freshness guaranteed to the last bite.' },
           { t: 'For drinks, desserts & more', d: 'Versatile for any creation.' }
+        ]
+      },
+      whatare: {
+        tag: 'What are they?', title: 'What bursting pearls are',
+        body: 'Bursting pearls are spheres filled with juice or flavored drink that pop in your mouth when you bite them, delivering a unique experience of flavor, texture and fun. They are ideal for drinks, bubble tea, yogurts, ice cream, desserts, cocktails and more.',
+        benefitsTitle: 'Benefits of bursting pearls',
+        benefits: [
+          'They bring an innovative, different experience.',
+          'They improve the presentation of drinks and desserts.',
+          'They attract more customers with their look and flavor.',
+          'Available in several flavors and colors.',
+          'Easy to prepare and use.',
+          'Ideal for startups, cafés and drink businesses.',
+          'They increase the value and appeal of your products.'
+        ]
+      },
+      usage: {
+        tag: 'How to use', title: 'How to use them correctly',
+        intro: 'Bursting pearls must be kept refrigerated and served straight onto the drink or dessert. Use plastic spoons or utensils to preserve their texture and avoid bursting or contamination. Clean the spoon after serving and do not mix it with another container without cleaning it first.',
+        qtyTitle: 'Recommended amount',
+        qty: [['Medium drinks', '20 – 30 g'], ['Large drinks', '30 – 50 g'], ['Desserts & ice cream', '30 – 50 g']],
+        qtyNote: 'The amount can be adjusted to each customer’s taste.',
+        serveTitle: 'How to serve them',
+        serve: [
+          'Lightly drain the liquid before serving.',
+          'Add them at the end of the preparation to keep them fresh.',
+          'Serve with wide straws in bubble-tea style drinks.',
+          'Always keep refrigerated after opening the container.'
+        ],
+        drinksTitle: 'Best drinks',
+        drinks: ['Bubble tea', 'Iced tea', 'Slushies', 'Smoothies', 'Lemonades', 'Yogurt drinks', 'Cocktails & mocktails', 'Fruit drinks'],
+        dessertsTitle: 'Best desserts',
+        desserts: ['Ice cream', 'Waffles', 'Crepes', 'Fruit yogurt', 'Cheesecake', 'Fruit salads', 'Cakes', 'Jellies']
+      },
+      care: {
+        tag: 'Storage', title: 'Storage & handling',
+        body: 'To keep the quality, flavor and texture of the bursting pearls, follow these recommendations:',
+        items: [
+          'Keep the product refrigerated between 2 °C and 8 °C.',
+          'Avoid direct sunlight or high temperatures.',
+          'Once opened, always keep the container tightly closed.',
+          'Use clean, dry utensils to handle the product.',
+          'Do not mix with hot water.',
+          'Consume as soon as possible after opening.',
+          'Do not freeze: it can affect the pearls’ texture.',
+          'Keep in a clean, contamination-free place.',
+          'Do not pour liquids into the jar.'
+        ],
+        note: 'Proper storage keeps the freshness, flavor and bursting experience of the product.'
+      },
+      recipes: {
+        tag: 'Recipes', title: 'King Pearl recipes',
+        intro: 'Bursting pearls work best in cold drinks and fresh desserts: they improve presentation, raise the product value and offer a unique customer experience.',
+        ingLabel: 'Ingredients', stepLabel: 'Method',
+        catDrink: 'Drink', catDessert: 'Dessert', catCocktail: 'Cocktail',
+        list: [
+          { name: 'Classic Fruit Bubble Tea', cat: 'drink',
+            ing: ['250 ml cold tea', '30 ml fruit syrup', 'Ice', '60 g bursting pearls'],
+            steps: ['Add ice to the glass.', 'Pour in the tea and syrup.', 'Mix well.', 'Add the pearls at the end.', 'Serve with a wide straw.'] },
+          { name: 'Bursting Lemonade', cat: 'drink',
+            ing: ['Juice of 2 lemons', '300 ml cold water', 'Sugar to taste', 'Ice', '50 g strawberry or passion-fruit pearls'],
+            steps: ['Mix lemon, water and sugar.', 'Add ice.', 'Stir in the pearls at the end.', 'Garnish with a lemon slice.'] },
+          { name: 'Tropical Premium Smoothie', cat: 'drink',
+            ing: ['1 cup frozen mango', '½ cup pineapple', '200 ml yogurt or milk', 'Ice', '60 g bursting pearls'],
+            steps: ['Blend the fruit with yogurt and ice.', 'Serve in a tall glass.', 'Add the pearls on top.'] },
+          { name: 'King Pearl Slushie', cat: 'drink',
+            ing: ['300 ml fruit drink', 'Crushed ice', 'Syrup to taste', '70 g bursting pearls'],
+            steps: ['Blend the ice with the drink.', 'Serve in a large glass.', 'Add the pearls and optional whipped cream.'] },
+          { name: 'Bursting Mojito', cat: 'cocktail',
+            ing: ['Mint', 'Lemon juice', 'Sparkling water', 'Rum', 'Ice', '50 g bursting pearls'],
+            steps: ['Muddle mint and lemon.', 'Add ice and rum.', 'Top with sparkling water.', 'Add the pearls at the end.'] },
+          { name: 'Yogurt with Pearls', cat: 'dessert',
+            ing: ['Greek yogurt', 'Chopped fruit', 'Granola', '40 g bursting pearls'],
+            steps: ['Place yogurt in a glass.', 'Add fruit and granola.', 'Top with bursting pearls.'] },
+          { name: 'Premium Waffle', cat: 'dessert',
+            ing: ['Prepared waffle', 'Ice cream', 'Chocolate sauce', '50 g bursting pearls'],
+            steps: ['Serve the waffle warm.', 'Add ice cream and sauce.', 'Top with bursting pearls.'] },
+          { name: 'Decorated Cheesecake', cat: 'dessert',
+            ing: ['Individual cheesecake', 'Fruit sauce', '30 g bursting pearls'],
+            steps: ['Decorate the cheesecake with sauce.', 'Place the pearls on top before serving.'] },
+          { name: 'Bursting Frappé', cat: 'drink',
+            ing: ['250 ml milk', 'Coffee or chocolate', 'Ice', 'Whipped cream', '60 g bursting pearls'],
+            steps: ['Blend milk, ice and flavoring.', 'Serve cold.', 'Top with cream and pearls.'] }
+        ]
+      },
+      biz: {
+        tag: 'Partnership', title: 'Benefits of working with King Pearl',
+        items: [
+          { t: 'Support & advice', d: 'Constant guidance to help you grow, improve your products and offer a better experience.' },
+          { t: 'Promotions & strategy', d: 'Special promotions and campaigns that boost sales and attract new customers.' },
+          { t: 'Brand activations', d: 'Support with point-of-sale activations, tastings and events to give your business visibility.' },
+          { t: 'POP material', d: 'Banners, stickers, menus, displays and visual material to strengthen your brand image.' },
+          { t: 'Constant innovation', d: 'New flavors, ideas and trends so you always offer attractive products.' },
+          { t: 'Quality & trust', d: 'Excellent-quality products that guarantee flavor, freshness and satisfaction every time.' }
         ]
       },
       about: {
