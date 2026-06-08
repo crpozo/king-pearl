@@ -8,7 +8,7 @@
   --ink:#241826;         /* deep plum-black */
   --ink-soft:#6E6273;
   --line:rgba(36,24,38,.14);
-  --paper:#FFF8EE;       /* light warm card */
+  --paper:#FFFFFF;       /* white (was warm cream) */
   /* flavor accents */
   --mango:#FF9E1B; --cereza:#D7263D; --manzana:#7AC70C;
   --frambuesa:#E8245A; --arandano:#7B2FBF; --fresa:#FF3B5C;
@@ -477,7 +477,7 @@ body.no-motion .phero__pearl{animation:none}
 /* ---------------- CONTACT + FOOTER (deep purple) ---------------- */
 .ct{padding:clamp(82px,9vw,118px) 0 0;background:var(--green-deep);color:#fff;overflow:hidden}
 /* header row: title + open/closed status */
-.ct__top2{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.ct__top2{display:flex;flex-direction:column;gap:16px;max-width:880px}
 .ct__eye{display:inline-flex;align-items:center;gap:.5em;font-weight:800;letter-spacing:.14em;
   text-transform:uppercase;font-size:12.5px;color:rgba(255,255,255,.66)}
 .ct__h{font-size:clamp(30px,3.6vw,52px);margin-top:12px;color:#fff;line-height:1.05}
@@ -521,9 +521,9 @@ body.no-motion .phero__pearl{animation:none}
 .ct__dir-btn{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;justify-content:center;
   background:#fff;color:var(--green-ink);font-size:16px}
 .ct__dir-btn:hover{box-shadow:0 16px 32px -12px rgba(0,0,0,.5)}
-/* closing thank-you note */
-.ct__thanks{max-width:760px;margin:clamp(40px,5vw,64px) auto 0;text-align:center;
-  font-size:clamp(15px,1.3vw,18px);line-height:1.6;color:rgba(255,255,255,.82);font-weight:600}
+/* intro note under the title */
+.ct__thanks{max-width:70ch;margin:0;font-size:clamp(15px,1.3vw,18px);line-height:1.65;
+  color:rgba(255,255,255,.82);font-weight:600}
 @media(max-width:760px){
   .ct__loc{grid-template-columns:1fr;gap:18px}
   .ct__top2{flex-direction:column}
