@@ -71,10 +71,8 @@
         kicker: 'Burbujas explosivas · Ecuador',
         line: ['Perlas que', 'Explotan'],
         sub: [
-          'En KING PEARL transformamos cada bebida y postre en una experiencia única. Nuestras perlas explosivas están elaboradas con calidad, sabor y mucha innovación, ideales para cafeterías, confiterías, heladerías, restaurantes, locales de bebidas, postres, donas, emprendimientos y distribuidores que buscan ofrecer productos diferentes y llamativos.',
-          'Trabajamos para impulsar negocios que quieran destacar con nuevas tendencias, mejor presentación y sabores que sorprendan a sus clientes.',
-          'Gracias por ser parte de esta experiencia llena de color, creatividad y explosión de sabor.',
-          'En KING PEARL seguimos creciendo junto a ustedes.'
+          'Transformamos cada bebida y postre en una experiencia única con perlas explosivas de fruta real, elaboradas con calidad, sabor e innovación.',
+          'Ideales para cafeterías, heladerías, restaurantes y todo negocio que quiera destacar con productos diferentes y llamativos.'
         ],
         scroll: 'Desliza'
       },
@@ -224,6 +222,8 @@
         explore: 'Explora', cols_contact: 'Contacto', cities: 'Ubicación',
         ftTag: 'Burbujas explosivas · Ecuador',
         location: 'Visítanos en Quito',
+        showroom: 'Showroom Quito', openNow: 'Abierto ahora', closedNow: 'Cerrado ahora',
+        addrLabel: 'Dirección', call: 'Llamar', mapChip: 'Av. El Inca E4–239',
         access: 'Ingresa por Autos Sierra · 2.º piso · Amplios parqueaderos',
         hoursLabel: 'Horarios',
         hoursLines: ['Lun a Vie · 9:00 – 18:00 h', 'Sáb · 9:30 – 14:00 h'],
@@ -246,10 +246,8 @@
         kicker: 'Bursting bubbles · Ecuador',
         line: ['Pearls that', 'Burst'],
         sub: [
-          'At KING PEARL we turn every drink and dessert into a unique experience. Our bursting pearls are crafted with quality, flavor and plenty of innovation — ideal for cafés, candy shops, ice-cream parlors, restaurants, drink and dessert spots, donut shops, startups and distributors looking to offer eye-catching, different products.',
-          'We work to boost businesses that want to stand out with new trends, better presentation and flavors that surprise their customers.',
-          'Thank you for being part of this experience full of color, creativity and an explosion of flavor.',
-          'At KING PEARL we keep growing together with you.'
+          'We turn every drink and dessert into a unique experience with real-fruit bursting pearls, crafted with quality, flavor and innovation.',
+          'Perfect for cafés, ice-cream shops, restaurants and any business that wants to stand out with eye-catching, different products.'
         ],
         scroll: 'Scroll'
       },
@@ -399,6 +397,8 @@
         explore: 'Explore', cols_contact: 'Contact', cities: 'Location',
         ftTag: 'Bursting bubbles · Ecuador',
         location: 'Visit us in Quito',
+        showroom: 'Quito showroom', openNow: 'Open now', closedNow: 'Closed now',
+        addrLabel: 'Address', call: 'Call', mapChip: 'Av. El Inca E4–239',
         access: 'Enter through Autos Sierra · 2nd floor · Ample parking',
         hoursLabel: 'Hours',
         hoursLines: ['Mon–Fri · 9:00 – 18:00', 'Sat · 9:30 – 14:00'],
@@ -411,6 +411,7 @@
   const CONTACT = {
     whatsapp: '+593 98 523 8661',
     waLink: 'https://wa.me/593985238661',
+    telLink: 'tel:+593985238661',
     email: 'hola@kingpearl.ec',
     instagram: '@kingpearl2026',
     igLink: 'https://instagram.com/kingpearl2026',

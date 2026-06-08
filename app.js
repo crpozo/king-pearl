@@ -262,14 +262,20 @@
     </section>`;
   }
 
-  // OLIPOP "Our Mission"-style zig-zag: alternating illustration + copy rows.
+  // OLIPOP "Our Mission"-style zig-zag: alternating photo + copy rows.
+  // Real stock photography served by tag (loads in the visitor's browser).
+  const FEAT_IMGS = [
+    'https://loremflickr.com/720/820/bubbletea?lock=27',
+    'https://loremflickr.com/720/820/strawberries,fruit?lock=12',
+    'https://loremflickr.com/720/820/icedtea,drink?lock=43',
+    'https://loremflickr.com/720/820/icecream,dessert?lock=58'
+  ];
   function features(t) {
     const accents = ['#FF9E1B', '#E8245A', '#7B2FBF', '#43AC28'];
     const rows = t.features.items.map((it, i) => `
       <article class="frow${i % 2 ? ' frow--rev' : ''} reveal d${(i % 2) + 1}" style="--c:${accents[i % accents.length]}">
         <figure class="frow__art">
-          <span class="frow__disc"></span>
-          <span class="frow__ic">${featIcons[i]}</span>
+          <img class="frow__img" src="${FEAT_IMGS[i]}" alt="${esc(it.t)}" loading="lazy" decoding="async" />
           <span class="frow__pearl frow__pearl--a"></span>
           <span class="frow__pearl frow__pearl--b"></span>
           <span class="frow__pearl frow__pearl--c"></span>
@@ -482,42 +488,65 @@
     </section>`;
   }
 
+  // Is the Quito showroom open right now? (evaluated in Ecuador time)
+  function isOpenNow() {
+    try {
+      const p = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Guayaquil', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+      const wd = p.find((x) => x.type === 'weekday').value;
+      const mins = (+p.find((x) => x.type === 'hour').value % 24) * 60 + (+p.find((x) => x.type === 'minute').value);
+      if (['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(wd)) return mins >= 540 && mins < 1080;
+      if (wd === 'Sat') return mins >= 570 && mins < 840;
+      return false;
+    } catch (e) { return false; }
+  }
+
+  const pinIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>`;
+  const clockIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`;
+  const phoneIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2 2.2A16 16 0 0 1 4.3 5.5a2 2 0 0 1 2.2-2Z"/></svg>`;
+
   function contactSection(t) {
     const c = t.contact;
+    const open = isOpenNow();
+    const hours = c.hoursLines.map((h) => {
+      const i = h.indexOf('·');
+      const day = i >= 0 ? h.slice(0, i) : h;
+      const time = i >= 0 ? h.slice(i + 1) : '';
+      return `<div class="ct__hrow"><span>${esc(day.trim())}</span><b>${esc(time.trim())}</b></div>`;
+    }).join('');
+    const mapQ = encodeURIComponent(CONTACT.address);
     return `
     <section class="ct" id="contacto">
-      <div class="wrap ct__inner">
-        <h2 class="display ct__h reveal d1">${esc(c.title)}</h2>
-        <p class="ct__body reveal d2">${esc(c.body)}</p>
-        <a class="btn btn--accent ct__wa reveal d3" href="${CONTACT.waLink}" target="_blank" rel="noopener">${waIcon}${esc(c.wa)}</a>
-        <div class="ct__social reveal d4">
-          <a href="${CONTACT.fbLink}" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
-          </a>
-          <a href="${CONTACT.igLink}" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="${CONTACT.ttLink}" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 8.3a6.5 6.5 0 0 1-3.9-1.3v6.6A5.6 5.6 0 1 1 11.5 8c.3 0 .6 0 .9.08v2.92a2.7 2.7 0 1 0 1.9 2.58V2h2.8A3.9 3.9 0 0 0 21 5.5V8.3Z"/></svg>
-          </a>
+      <div class="wrap ct__top2 reveal">
+        <div class="ct__top2-h">
+          <span class="ct__eye">${pinIcon}${esc(c.showroom)}</span>
+          <h2 class="display ct__h">${esc(c.location)}</h2>
         </div>
+        <span class="ct__status ${open ? 'is-open' : 'is-closed'}"><span class="ct__dot"></span>${esc(open ? c.openNow : c.closedNow)}</span>
       </div>
       <div class="wrap ct__loc reveal">
-        <figure class="ct__photo">
-          <img src="assets/local-entrada.jpg" alt="Fachada de Autos Sierra — entrada a King Pearl" loading="lazy" />
-          <figcaption>${esc(c.access)}</figcaption>
-        </figure>
-        <div class="ct__loc-info">
-          <span class="ct__loc-eye">${esc(c.location)}</span>
-          <p class="ct__addr">${esc(CONTACT.address)}</p>
-          <div class="ct__hours">
-            <span class="ct__hours-lbl">${esc(c.hoursLabel)}</span>
-            ${c.hoursLines.map((h) => `<span>${esc(h)}</span>`).join('')}
+        <div class="ct__card">
+          <figure class="ct__photo">
+            <img src="assets/local-entrada.jpg" alt="Fachada de Autos Sierra — entrada a King Pearl" loading="lazy" />
+            <figcaption>${esc(c.access)}</figcaption>
+          </figure>
+          <div class="ct__field">
+            <span class="ct__field-ic">${pinIcon}</span>
+            <div><span class="ct__field-lbl">${esc(c.addrLabel)}</span><p class="ct__addr">${esc(CONTACT.address)}</p></div>
           </div>
-          <a class="btn btn--cream ct__dir" href="${CONTACT.mapsLink}" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-            ${esc(c.directions)}
-          </a>
+          <div class="ct__field">
+            <span class="ct__field-ic">${clockIcon}</span>
+            <div class="ct__field-grow"><span class="ct__field-lbl">${esc(c.hoursLabel)}</span><div class="ct__hours">${hours}</div></div>
+          </div>
+          <div class="ct__btns">
+            <a class="btn ct__wa-btn" href="${CONTACT.waLink}" target="_blank" rel="noopener">${waIcon}WhatsApp</a>
+            <a class="btn ct__call-btn" href="${CONTACT.telLink}">${phoneIcon}${esc(c.call)}</a>
+          </div>
+        </div>
+        <div class="ct__map-card">
+          <span class="ct__map-chip">${pinIcon}${esc(c.mapChip)}</span>
+          <iframe class="ct__map" title="${esc(c.location)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=${mapQ}&output=embed"></iframe>
+          <a class="btn ct__dir-btn" href="${CONTACT.mapsLink}" target="_blank" rel="noopener">${pinIcon}${esc(c.directions)} <span aria-hidden="true">→</span></a>
         </div>
       </div>
       <p class="wrap ct__thanks reveal">${esc(c.thanks)}</p>
@@ -532,6 +561,17 @@
           <div class="ft__brand">
             <img class="ft__logo" src="assets/kp-logo.png" alt="King Pearl" />
             <p class="ft__tag">${esc(c.ftTag)}</p>
+            <div class="ft__social">
+              <a href="${CONTACT.fbLink}" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+              </a>
+              <a href="${CONTACT.igLink}" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+              </a>
+              <a href="${CONTACT.ttLink}" target="_blank" rel="noopener" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 8.3a6.5 6.5 0 0 1-3.9-1.3v6.6A5.6 5.6 0 1 1 11.5 8c.3 0 .6 0 .9.08v2.92a2.7 2.7 0 1 0 1.9 2.58V2h2.8A3.9 3.9 0 0 0 21 5.5V8.3Z"/></svg>
+              </a>
+            </div>
           </div>
           <div class="ft__cols">
             <div class="ft__col">
