@@ -198,15 +198,20 @@
       const gap = parseFloat(getComputedStyle(row).columnGap) || 20;
       return card ? card.offsetWidth + gap : row.clientWidth * 0.8;
     };
+    const maxScroll = () => row.scrollWidth - row.clientWidth - 2;
     const syncArrows = () => {
-      const max = row.scrollWidth - row.clientWidth - 2;
-      const overflow = max > 4;
+      // Keep both arrows active so the carousel can loop around endlessly.
+      const overflow = maxScroll() > 4;
       [prev, next].forEach((b) => b.classList.toggle('pl__nav--hide', !overflow));
-      prev.disabled = row.scrollLeft <= 2;
-      next.disabled = row.scrollLeft >= max;
     };
-    prev.addEventListener('click', () => row.scrollBy({ left: -step(), behavior: 'smooth' }));
-    next.addEventListener('click', () => row.scrollBy({ left: step(), behavior: 'smooth' }));
+    prev.addEventListener('click', () => {
+      if (row.scrollLeft <= 2) row.scrollTo({ left: maxScroll(), behavior: 'smooth' });
+      else row.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', () => {
+      if (row.scrollLeft >= maxScroll()) row.scrollTo({ left: 0, behavior: 'smooth' });
+      else row.scrollBy({ left: step(), behavior: 'smooth' });
+    });
     row.addEventListener('scroll', syncArrows, { passive: true });
     window.addEventListener('resize', syncArrows, { passive: true });
     syncArrows();
