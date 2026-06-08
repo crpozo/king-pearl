@@ -111,7 +111,8 @@ body.no-motion .wafab{animation:none}
 .nv__links{display:flex;gap:30px;font-weight:700;font-size:15px}
 .nv__links a{position:relative;padding:4px 0;color:inherit}
 .nv__links a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:2px;background:currentColor;transition:right .3s var(--ease)}
-.nv__links a:hover::after{right:0}
+.nv__links a:hover::after,.nv__links a.on::after{right:0}
+.nv__links a.on{color:var(--accent)}
 .nv__right{display:flex;align-items:center;gap:18px}
 .lang{display:inline-flex;align-items:center;gap:3px;padding:3px;border-radius:999px;
   font-weight:800;font-size:13px;border:1.6px solid rgba(255,255,255,.45)}
@@ -338,6 +339,26 @@ body.no-motion .frow__pearl{animation:none}
 .sec-head--light .eyebrow .sq{background:#fff}
 .sec-head--light .sec-title{color:#fff}
 
+/* inner pages have no hero, so clear the fixed nav */
+.subpage{padding-top:clamp(74px,9vw,96px)}
+
+/* ---------------- EXPLORE cards (home → pages) ---------------- */
+.explore{padding:clamp(70px,7vw,104px) 0;background:var(--cream)}
+.explore__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,1.8vw,24px)}
+.exc{position:relative;display:block;padding:clamp(26px,2.6vw,38px);border-radius:24px;overflow:hidden;
+  background:var(--paper);border:1px solid var(--line);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.exc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--brand);
+  transform:scaleY(0);transform-origin:top;transition:transform .35s var(--ease)}
+.exc:hover{transform:translateY(-6px);box-shadow:0 30px 60px -38px rgba(36,24,38,.5)}
+.exc:hover::before{transform:scaleY(1)}
+.exc__t{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(19px,1.7vw,24px);
+  color:var(--green-ink);margin-bottom:10px}
+.exc__d{color:var(--ink-soft);line-height:1.55;font-size:clamp(14.5px,1.1vw,16px);max-width:34ch}
+.exc__arrow{display:inline-flex;margin-top:18px;font-size:20px;font-weight:800;color:var(--accent);
+  transition:transform .3s var(--ease)}
+.exc:hover .exc__arrow{transform:translateX(6px)}
+
 /* ---------------- WHAT ARE THEY ---------------- */
 .wa2{padding:clamp(78px,8vw,116px) 0;background:var(--cream)}
 .wa2__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,5vw,72px);align-items:center}
@@ -504,7 +525,7 @@ body.no-motion .frow__pearl{animation:none}
   .ab__grid{grid-template-columns:1fr;gap:36px}
   .ab__art{order:-1}
   .wa2__grid{grid-template-columns:1fr;gap:32px}
-  .rec__grid,.biz__grid,.care__grid{grid-template-columns:repeat(2,1fr)}
+  .rec__grid,.biz__grid,.care__grid,.explore__grid{grid-template-columns:repeat(2,1fr)}
   .frow{grid-template-columns:1fr;gap:24px;justify-items:center;text-align:center;max-width:480px;margin-inline:auto}
   .frow--rev .frow__art{order:0}
   .frow__art{width:min(320px,80%)}
@@ -527,7 +548,7 @@ body.no-motion .frow__pearl{animation:none}
   .ft__cols{grid-template-columns:1fr 1fr}
 }
 @media(max-width:600px){
-  .rec__grid,.biz__grid,.care__grid{grid-template-columns:1fr}
+  .rec__grid,.biz__grid,.care__grid,.explore__grid{grid-template-columns:1fr}
 }
 @media(max-width:520px){
   .sc__picker{grid-template-columns:repeat(2,1fr)}

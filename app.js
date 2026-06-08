@@ -2,13 +2,11 @@
 (function () {
   const { FLAVORS, PRICE, I18N, CONTACT } = window.KP;
   const FLAVOR_HEX = ['#FF9E1B', '#D7263D', '#7AC70C', '#E8245A', '#7B2FBF', '#FF3B5C', '#FFA516'];
-  const LIGHT_FLAVORS = { maracuya: 1, manzana: 1, mango: 1 }; // need dark text on their color
 
   // --- tiny helpers ---------------------------------------------------------
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   let lang = 'es';
-  let activeFlavor = 0;
   let lineupFilter = 'all';
 
   // Which flavor ids belong to each lineup filter pill.
@@ -35,14 +33,16 @@
 
   // --- markup builders ------------------------------------------------------
   function nav(t) {
-    const links = [['#sabores', t.nav.sabores], ['#usos', t.nav.usos],
-      ['#recetas', t.nav.recetas], ['#nosotros', t.nav.nosotros], ['#contacto', t.nav.contacto]];
-    const linkHtml = links.map(([h, l]) => `<a href="${h}">${esc(l)}</a>`).join('');
+    const route = currentRoute();
+    const links = [['#/', t.nav.inicio], ['#/usos', t.nav.usos],
+      ['#/recetas', t.nav.recetas], ['#/nosotros', t.nav.nosotros]];
+    const linkHtml = links.map(([h, l]) =>
+      `<a href="${h}" class="${('#' + route) === h ? 'on' : ''}">${esc(l)}</a>`).join('');
     return `
     <header class="nv" id="nav">
       <div class="wrap nv__inner">
         <nav class="nv__links">${linkHtml}</nav>
-        <a href="#top" class="nv__brand"><img src="assets/kp-logo.png" alt="King Pearl" /></a>
+        <a href="#/" class="nv__brand"><img src="assets/kp-logo.png" alt="King Pearl" /></a>
         <div class="nv__right">
           <div class="lang">
             <button data-lang="es" class="${lang === 'es' ? 'on' : ''}">ES</button>
@@ -136,7 +136,7 @@
     const pills = t.lineup.filters.map((fl) =>
       `<button class="pl__pill${fl.id === lineupFilter ? ' on' : ''}" data-filter="${fl.id}">${esc(fl.label)}</button>`).join('');
     return `
-    <section class="pl">
+    <section class="pl" id="sabores">
       <div class="wrap">
         <div class="pl__head">
           <h2 class="display pl__title reveal d1">${esc(t.lineup.title)}</h2>
@@ -150,7 +150,7 @@
         <button class="pl__nav pl__nav--next" id="plNext" aria-label="Siguiente">${arrowIcon('next')}</button>
       </div>
       <div class="wrap pl__cta reveal d2">
-        <a class="btn btn--accent pl__btn" href="#sabores">${esc(t.lineup.all)} <span aria-hidden="true">›</span></a>
+        <a class="btn btn--accent pl__btn" href="${CONTACT.waLink}" target="_blank" rel="noopener">${esc(t.cta.quote)} <span aria-hidden="true">›</span></a>
       </div>
     </section>`;
   }
@@ -220,62 +220,6 @@
         <div class="steps__grid">${items}</div>
       </div>
     </section>`;
-  }
-
-  // interactive showcase — rebuilt on flavor change so the section recolors
-  function showcaseHtml(t) {
-    const f = FLAVORS[activeFlavor];
-    const dark = !!LIGHT_FLAVORS[f.id];
-    const name = lang === 'es' ? f.es : f.en;
-    const desc = lang === 'es' ? f.descEs : f.descEn;
-    const txt = dark ? '#1A1611' : '#fff';
-    const sub = dark ? 'rgba(26,22,17,.7)' : 'rgba(255,255,255,.82)';
-
-    const chips = FLAVORS.map((ff, k) => `
-      <button role="tab" aria-selected="${k === activeFlavor}" data-chip="${k}"
-        class="fchip${k === activeFlavor ? ' on' : ''}"
-        style="--c:${ff.color};border-color:${k === activeFlavor ? txt : (dark ? 'rgba(26,22,17,.28)' : 'rgba(255,255,255,.4)')};color:${txt}">
-        <span class="fchip__sw" style="background:${ff.color}"></span>
-        <span>${esc(lang === 'es' ? ff.es : ff.en)}</span>
-        ${ff.isNew ? `<span class="fchip__new">${esc(t.flavors.new)}</span>` : ''}
-      </button>`).join('');
-
-    return `
-      <div class="wrap">
-        <div class="sc__head">
-          <h2 class="display sc__title">${esc(t.flavors.title)}</h2>
-        </div>
-        <div class="sc__main">
-          <div class="sc__stage">
-            <figure class="sc__tub">
-              ${f.isNew ? `<span class="sc__new">${esc(t.flavors.new)}</span>` : ''}
-              <img src="${f.img}" alt="${esc(name)}" loading="eager" decoding="async" fetchpriority="high" />
-            </figure>
-          </div>
-          <div class="sc__info">
-            <h3 class="display sc__name">${esc(name)}</h3>
-            <p class="sc__desc" style="color:${sub}">${esc(desc)}</p>
-            <div class="sc__buy">
-              <span class="sc__price"><small style="color:${sub}">${esc(t.flavors.from)}</small> ${esc(PRICE)}</span>
-              <a class="btn ${dark ? 'btn--ink' : 'btn--cream'}" href="${CONTACT.waLink}" target="_blank" rel="noopener">${esc(t.cta.quote)}</a>
-            </div>
-          </div>
-        </div>
-        <div class="sc__picker" role="tablist">${chips}</div>
-      </div>`;
-  }
-
-  function paintShowcase() {
-    const t = I18N[lang];
-    const f = FLAVORS[activeFlavor];
-    const dark = !!LIGHT_FLAVORS[f.id];
-    const sc = document.getElementById('sabores');
-    sc.style.background = f.color;
-    sc.style.color = dark ? '#1A1611' : '#fff';
-    sc.innerHTML = showcaseHtml(t);
-    sc.querySelectorAll('[data-chip]').forEach((b) => {
-      b.addEventListener('click', () => { activeFlavor = Number(b.dataset.chip); paintShowcase(); });
-    });
   }
 
   function usos(t) {
@@ -464,6 +408,27 @@
     </section>`;
   }
 
+  // Home navigation cards that link to the additional pages.
+  function exploreCards(t) {
+    const c = t.home;
+    const cards = c.cards.map((card, i) => `
+      <a class="exc reveal d${i + 1}" href="${card.href}">
+        <h3 class="exc__t">${esc(card.t)}</h3>
+        <p class="exc__d">${esc(card.d)}</p>
+        <span class="exc__arrow" aria-hidden="true">→</span>
+      </a>`).join('');
+    return `
+    <section class="explore">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(c.exploreTag)}</span>
+          <h2 class="display sec-title reveal d1">${esc(c.exploreTitle)}</h2>
+        </div>
+        <div class="explore__grid">${cards}</div>
+      </div>
+    </section>`;
+  }
+
   function about(t) {
     const c = t.about;
     return `
@@ -479,7 +444,7 @@
     </section>`;
   }
 
-  function contact(t) {
+  function contactSection(t) {
     const c = t.contact;
     return `
     <section class="ct" id="contacto">
@@ -518,6 +483,12 @@
         </div>
       </div>
       <p class="wrap ct__thanks reveal">${esc(c.thanks)}</p>
+    </section>`;
+  }
+
+  function siteFooter(t) {
+    const c = t.contact;
+    return `
       <footer class="ft">
         <div class="wrap ft__top">
           <div class="ft__brand">
@@ -527,8 +498,10 @@
           <div class="ft__cols">
             <div class="ft__col">
               <h4>${esc(c.explore)}</h4>
-              <a href="#sabores">${esc(t.nav.sabores)}</a>
-              <a href="#nosotros">${esc(t.nav.nosotros)}</a>
+              <a href="#/">${esc(t.nav.inicio)}</a>
+              <a href="#/usos">${esc(t.nav.usos)}</a>
+              <a href="#/recetas">${esc(t.nav.recetas)}</a>
+              <a href="#/nosotros">${esc(t.nav.nosotros)}</a>
             </div>
             <div class="ft__col">
               <h4>${esc(c.cols_contact)}</h4>
@@ -547,14 +520,16 @@
         <div class="wrap ft__bottom">
           <p class="ft__r">© ${new Date().getFullYear()} King Pearl · ${esc(c.rights)}</p>
         </div>
-      </footer>
-    </section>`;
+      </footer>`;
   }
 
   // --- behaviours -----------------------------------------------------------
   function wireNav() {
     const nv = document.getElementById('nav');
-    const onScroll = () => nv.classList.toggle('nv--solid', window.scrollY > 40);
+    // On the home page the bar is transparent over the hero until you scroll;
+    // on inner pages there is no hero, so keep it solid (and legible) always.
+    const home = currentRoute() === '/';
+    const onScroll = () => nv.classList.toggle('nv--solid', !home || window.scrollY > 40);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -579,44 +554,62 @@
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
   }
 
+  // --- pages ----------------------------------------------------------------
+  const pageHome = (t) => hero(t) + whatare(t) + productLineup(t) + exploreCards(t) + contactSection(t);
+  const pageUsos = (t) => usage(t) + care(t);
+  const pageRecetas = (t) => recipes(t);
+  const pageNosotros = (t) => about(t) + features(t) + biz(t) + contactSection(t);
+
+  const ROUTES = { '/': pageHome, '/usos': pageUsos, '/recetas': pageRecetas, '/nosotros': pageNosotros };
+
+  // Hash router. Inner pages use "#/usos"; bare in-page anchors ("#sabores")
+  // and the empty hash map to home so the browser can still scroll to them.
+  function currentRoute() {
+    const h = (location.hash || '').replace(/^#/, '');
+    return h.startsWith('/') && ROUTES[h] ? h : '/';
+  }
+
   // --- mount ----------------------------------------------------------------
-  function render() {
+  let mountedRoute = null;
+  function render(force) {
+    const route = currentRoute();
+    // Same page (e.g. an in-page "#sabores" anchor) — leave the DOM so the
+    // browser handles the anchor scroll instead of rebuilding the page.
+    if (!force && route === mountedRoute) return;
+    mountedRoute = route;
+
     const t = I18N[lang];
     document.documentElement.lang = lang;
+    const page = ROUTES[route] || pageHome;
+    const isHome = route === '/';
+    const titles = { '/': lang === 'es' ? 'Burbujas Explosivas' : 'Bursting Bubbles',
+      '/usos': t.nav.usos, '/recetas': t.nav.recetas, '/nosotros': t.nav.nosotros };
+    document.title = 'King Pearl — ' + (titles[route] || '');
     const root = document.getElementById('root');
     root.innerHTML =
       nav(t) +
-      '<main>' +
-        hero(t) +
-        productLineup(t) +
-        '<section class="sc" id="sabores"></section>' +
-        whatare(t) +
-        usage(t) +
-        care(t) +
-        recipes(t) +
-        about(t) +
-        features(t) +
-        biz(t) +
-        contact(t) +
-      '</main>';
-    paintShowcase();
-    wireLineup();
+      `<main${isHome ? '' : ' class="subpage"'}>${page(t)}</main>` +
+      siteFooter(t);
+
+    if (isHome) wireLineup();
     wireNav();
     wireReveals();
+    window.scrollTo(0, 0);
   }
 
   function setLang(l) {
     if (l === lang) return;
     lang = l === 'en' ? 'en' : 'es';
-    render();
+    render(true);
   }
 
-  // Warm the browser cache so switching flavors in the showcase is instant.
+  // Warm the browser cache so the flavor images swap in instantly.
   function preloadImages() {
     const urls = FLAVORS.map((f) => f.img).concat(['assets/hero-keyart.jpg']);
     urls.forEach((src) => { const im = new Image(); im.decoding = 'async'; im.src = src; });
   }
 
+  window.addEventListener('hashchange', () => render(false));
   preloadImages();
-  render();
+  render(true);
 })();

@@ -57,7 +57,15 @@
 
   const I18N = {
     es: {
-      nav: { sabores: 'Sabores', perlas: 'Las Perlas', usos: 'Usos', recetas: 'Recetas', nosotros: 'Nosotros', contacto: 'Contacto' },
+      nav: { inicio: 'Inicio', sabores: 'Sabores', perlas: 'Las Perlas', usos: 'Usos', recetas: 'Recetas', nosotros: 'Nosotros', contacto: 'Contacto' },
+      home: {
+        exploreTag: 'Explora', exploreTitle: 'Descubre más de King Pearl',
+        cards: [
+          { t: 'Cómo usarlas', d: 'Cantidades, modo de servir y dónde lucen mejor.', href: '#/usos' },
+          { t: 'Recetas', d: '9 recetas listas para sorprender a tus clientes.', href: '#/recetas' },
+          { t: 'Nosotros', d: 'Quiénes somos y por qué confiar en la corona.', href: '#/nosotros' }
+        ]
+      },
       cta: { quote: 'Cotiza ahora', flavors: 'Ver sabores', wa: 'WhatsApp' },
       hero: {
         kicker: 'Burbujas explosivas · Ecuador',
@@ -223,7 +231,15 @@
       }
     },
     en: {
-      nav: { sabores: 'Flavors', perlas: 'The Pearls', usos: 'Uses', recetas: 'Recipes', nosotros: 'About', contacto: 'Contact' },
+      nav: { inicio: 'Home', sabores: 'Flavors', perlas: 'The Pearls', usos: 'Uses', recetas: 'Recipes', nosotros: 'About', contacto: 'Contact' },
+      home: {
+        exploreTag: 'Explore', exploreTitle: 'Discover more of King Pearl',
+        cards: [
+          { t: 'How to use them', d: 'Amounts, how to serve and where they shine best.', href: '#/usos' },
+          { t: 'Recipes', d: '9 recipes ready to wow your customers.', href: '#/recetas' },
+          { t: 'About us', d: 'Who we are and why to trust the crown.', href: '#/nosotros' }
+        ]
+      },
       cta: { quote: 'Get a quote', flavors: 'See flavors', wa: 'WhatsApp' },
       hero: {
         kicker: 'Bursting bubbles · Ecuador',
