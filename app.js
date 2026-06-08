@@ -585,8 +585,6 @@
             <div class="ft__col">
               <h4>${esc(c.cols_contact)}</h4>
               <a href="${CONTACT.waLink}" target="_blank" rel="noopener">${esc(CONTACT.whatsapp)}</a>
-              <a href="mailto:${CONTACT.email}">${esc(CONTACT.email)}</a>
-              <a href="${CONTACT.igLink}" target="_blank" rel="noopener">${esc(CONTACT.instagram)}</a>
             </div>
             <div class="ft__col">
               <h4>${esc(c.cities)}</h4>
