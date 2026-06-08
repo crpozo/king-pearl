@@ -121,13 +121,13 @@
         body: 'Las perlas explosivas son esferas rellenas de jugo o bebida saborizada que explotan en la boca al morderlas, brindando una experiencia única de sabor, textura y diversión. Son ideales para bebidas, bubble tea, yogures, helados, postres, cócteles y más.',
         benefitsTitle: 'Beneficios de las perlas explosivas',
         benefits: [
-          'Aportan una experiencia innovadora y diferente.',
-          'Mejoran la presentación de bebidas y postres.',
-          'Atraen más clientes por su apariencia y sabor.',
-          'Disponibles en varios sabores y colores.',
-          'Fáciles de preparar y utilizar.',
-          'Ideales para emprendimientos, cafeterías y negocios de bebidas.',
-          'Incrementan el valor y atractivo de los productos.'
+          { t: 'Experiencia innovadora', d: 'Aportan una experiencia innovadora y diferente en cada bocado.' },
+          { t: 'Mejor presentación', d: 'Elevan la presentación de bebidas y postres al instante.' },
+          { t: 'Atraen más clientes', d: 'Llaman la atención por su apariencia colorida y su sabor.' },
+          { t: 'Variedad de sabores', d: 'Disponibles en varios sabores y colores para combinar.' },
+          { t: 'Fáciles de usar', d: 'Fáciles de preparar y utilizar en cualquier preparación.' },
+          { t: 'Ideales para tu negocio', d: 'Perfectas para emprendimientos, cafeterías y negocios de bebidas.' },
+          { t: 'Más valor al producto', d: 'Incrementan el valor y el atractivo de tus productos.' }
         ]
       },
       usage: {
@@ -212,6 +212,7 @@
       },
       about: {
         tag: 'Nosotros', a: 'LA CORONA DE LAS', b: 'PERLAS EN ECUADOR',
+        pageTitle: 'Nuestra historia', pageSub: 'Conoce la marca que corona bebidas y postres en todo el Ecuador.',
         body: 'King Pearl nació para llevar la explosión del bubble tea a cada rincón del país. Seleccionamos fruta real y la encerramos en perlas listas para coronar las creaciones de cafeterías, heladerías y barras de todo el Ecuador.',
         stats: [['7', 'sabores con corona'], ['100%', 'jugo de fruta real'], ['+3', 'ciudades principales']]
       },
@@ -295,13 +296,13 @@
         body: 'Bursting pearls are spheres filled with juice or flavored drink that pop in your mouth when you bite them, delivering a unique experience of flavor, texture and fun. They are ideal for drinks, bubble tea, yogurts, ice cream, desserts, cocktails and more.',
         benefitsTitle: 'Benefits of bursting pearls',
         benefits: [
-          'They bring an innovative, different experience.',
-          'They improve the presentation of drinks and desserts.',
-          'They attract more customers with their look and flavor.',
-          'Available in several flavors and colors.',
-          'Easy to prepare and use.',
-          'Ideal for startups, cafés and drink businesses.',
-          'They increase the value and appeal of your products.'
+          { t: 'Innovative experience', d: 'They bring an innovative, different experience in every bite.' },
+          { t: 'Better presentation', d: 'They instantly elevate the look of drinks and desserts.' },
+          { t: 'Attract more customers', d: 'They stand out for their colorful look and flavor.' },
+          { t: 'Flavor variety', d: 'Available in several flavors and colors to mix and match.' },
+          { t: 'Easy to use', d: 'Easy to prepare and use in any preparation.' },
+          { t: 'Great for business', d: 'Perfect for startups, cafés and drink businesses.' },
+          { t: 'More product value', d: 'They raise the value and appeal of your products.' }
         ]
       },
       usage: {
@@ -386,6 +387,7 @@
       },
       about: {
         tag: 'About us', a: 'THE CROWN OF', b: 'PEARLS IN ECUADOR',
+        pageTitle: 'Our story', pageSub: 'Meet the brand that crowns drinks and desserts across Ecuador.',
         body: 'King Pearl was born to bring the bubble-tea burst to every corner of the country. We select real fruit and seal it inside pearls ready to crown the creations of cafés, ice-cream shops and bars across Ecuador.',
         stats: [['7', 'crowned flavors'], ['100%', 'real fruit juice'], ['+3', 'main cities']]
       },
