@@ -129,7 +129,7 @@
         ]
       },
       usage: {
-        tag: 'Cómo usarlas', title: 'Cómo usarlas correctamente',
+        tag: 'Cómo usarlas', title: 'Cómo usarlas correctamente', more: 'Ver guía completa',
         intro: 'Las perlas explosivas deben mantenerse refrigeradas y servirse directamente sobre la bebida o postre. Usa cucharas o utensilios plásticos para conservar su textura y evitar que se revienten o contaminen. Limpia la cuchara después de servir y no la mezcles con otro envase sin limpiarla antes.',
         qtyTitle: 'Cantidad recomendada',
         qty: [['Bebidas medianas', '20 – 30 g'], ['Bebidas grandes', '30 – 50 g'], ['Postres y helados', '30 – 50 g']],
@@ -304,7 +304,7 @@
         ]
       },
       usage: {
-        tag: 'How to use', title: 'How to use them correctly',
+        tag: 'How to use', title: 'How to use them correctly', more: 'See full guide',
         intro: 'Bursting pearls must be kept refrigerated and served straight onto the drink or dessert. Use plastic spoons or utensils to preserve their texture and avoid bursting or contamination. Clean the spoon after serving and do not mix it with another container without cleaning it first.',
         qtyTitle: 'Recommended amount',
         qty: [['Medium drinks', '20 – 30 g'], ['Large drinks', '30 – 50 g'], ['Desserts & ice cream', '30 – 50 g']],

@@ -267,29 +267,14 @@
     </section>`;
   }
 
-  // OLIPOP "Our Mission"-style zig-zag: alternating photo + copy rows.
-  // Real stock photography served by tag (loads in the visitor's browser).
-  const FEAT_IMGS = [
-    'https://loremflickr.com/720/820/bubbletea?lock=27',
-    'https://loremflickr.com/720/820/strawberries,fruit?lock=12',
-    'https://loremflickr.com/720/820/icedtea,drink?lock=43',
-    'https://loremflickr.com/720/820/icecream,dessert?lock=58'
-  ];
+  // Clean icon-card grid: a colored icon badge, title and description.
   function features(t) {
     const accents = ['#FF9E1B', '#E8245A', '#7B2FBF', '#43AC28'];
-    const rows = t.features.items.map((it, i) => `
-      <article class="frow${i % 2 ? ' frow--rev' : ''} reveal d${(i % 2) + 1}" style="--c:${accents[i % accents.length]}">
-        <figure class="frow__art">
-          <img class="frow__img" src="${FEAT_IMGS[i]}" alt="${esc(it.t)}" loading="lazy" decoding="async" />
-          <span class="frow__pearl frow__pearl--a"></span>
-          <span class="frow__pearl frow__pearl--b"></span>
-          <span class="frow__pearl frow__pearl--c"></span>
-        </figure>
-        <div class="frow__copy">
-          <span class="frow__n display">${String(i + 1).padStart(2, '0')}</span>
-          <h3 class="frow__t">${esc(it.t)}</h3>
-          <p class="frow__d">${esc(it.d)}</p>
-        </div>
+    const cards = t.features.items.map((it, i) => `
+      <article class="feat reveal d${(i % 4) + 1}" style="--c:${accents[i % accents.length]}">
+        <span class="feat__ic">${featIcons[i]}</span>
+        <h3 class="feat__t">${esc(it.t)}</h3>
+        <p class="feat__d">${esc(it.d)}</p>
       </article>`).join('');
     return `
     <section class="feats">
@@ -298,7 +283,7 @@
           <span class="eyebrow reveal"><span class="sq"></span>${esc(t.features.tag)}</span>
           <h2 class="display feats__title reveal d1">${esc(t.features.title)}</h2>
         </div>
-        <div class="feats__rows">${rows}</div>
+        <div class="feats__grid">${cards}</div>
       </div>
     </section>`;
   }
@@ -458,22 +443,33 @@
   }
 
   // Home navigation cards that link to the additional pages.
-  function exploreCards(t) {
-    const c = t.home;
-    const cards = c.cards.map((card, i) => `
-      <a class="exc reveal d${i + 1}" href="${card.href}">
-        <h3 class="exc__t">${esc(card.t)}</h3>
-        <p class="exc__d">${esc(card.d)}</p>
-        <span class="exc__arrow" aria-hidden="true">→</span>
-      </a>`).join('');
+  // Home teaser of the usage guide: quantity + serving, with a link to /usos.
+  function usagePreview(t) {
+    const c = t.usage;
+    const qty = c.qty.map((q) => `<li><span>${esc(q[0])}</span><b>${esc(q[1])}</b></li>`).join('');
+    const serve = c.serve.map((s) => `<li><span class="use__ck">${checkIcon}</span>${esc(s)}</li>`).join('');
     return `
-    <section class="explore">
+    <section class="use">
       <div class="wrap">
         <div class="sec-head">
-          <span class="eyebrow reveal"><span class="sq"></span>${esc(c.exploreTag)}</span>
-          <h2 class="display sec-title reveal d1">${esc(c.exploreTitle)}</h2>
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(c.tag)}</span>
+          <h2 class="display sec-title reveal d1">${esc(c.title)}</h2>
+          <p class="sec-intro reveal d2">${esc(c.intro)}</p>
         </div>
-        <div class="explore__grid">${cards}</div>
+        <div class="use__grid">
+          <div class="use__card reveal d1">
+            <h3 class="use__ct">${esc(c.qtyTitle)}</h3>
+            <ul class="use__qty">${qty}</ul>
+            <p class="use__note">${esc(c.qtyNote)}</p>
+          </div>
+          <div class="use__card reveal d2">
+            <h3 class="use__ct">${esc(c.serveTitle)}</h3>
+            <ul class="use__serve">${serve}</ul>
+          </div>
+        </div>
+        <div class="use__cta reveal d2">
+          <a class="btn btn--accent" href="#/usos">${esc(c.more)} <span aria-hidden="true">›</span></a>
+        </div>
       </div>
     </section>`;
   }
@@ -651,7 +647,7 @@
   }
 
   // --- pages ----------------------------------------------------------------
-  const pageHome = (t) => hero(t) + whatare(t) + productLineup(t) + exploreCards(t) + contactSection(t);
+  const pageHome = (t) => hero(t) + whatare(t) + productLineup(t) + usagePreview(t) + contactSection(t);
   const pageUsos = (t) => pageBanner(t.usage.tag, t.usage.title, t.usage.intro) + usage(t, true) + care(t);
   const pageRecetas = (t) => pageBanner(t.recipes.tag, t.recipes.title, t.recipes.intro) + recipes(t, true);
   const pageNosotros = (t) => pageBanner(t.about.tag, t.about.pageTitle, t.about.pageSub) + about(t) + features(t) + biz(t) + contactSection(t);
