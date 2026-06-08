@@ -507,7 +507,6 @@
 
   function contactSection(t) {
     const c = t.contact;
-    const open = isOpenNow();
     const hours = c.hoursLines.map((h) => {
       const i = h.indexOf('·');
       const day = i >= 0 ? h.slice(0, i) : h;
@@ -518,11 +517,7 @@
     return `
     <section class="ct" id="contacto">
       <div class="wrap ct__top2 reveal">
-        <div class="ct__top2-h">
-          <span class="ct__eye">${pinIcon}${esc(c.showroom)}</span>
-          <h2 class="display ct__h">${esc(c.location)}</h2>
-        </div>
-        <span class="ct__status ${open ? 'is-open' : 'is-closed'}"><span class="ct__dot"></span>${esc(open ? c.openNow : c.closedNow)}</span>
+        <h2 class="display ct__h">${esc(c.location)}</h2>
       </div>
       <div class="wrap ct__loc reveal">
         <div class="ct__card">
