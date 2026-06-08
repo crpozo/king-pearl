@@ -302,7 +302,7 @@
     const c = t.whatare;
     const chev = `<svg class="acc__chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>`;
     const items = c.benefits.map((b, i) => `
-      <details class="acc__item"${i === 0 ? ' open' : ''}>
+      <details class="acc__item" name="kp-benefits"${i === 0 ? ' open' : ''}>
         <summary class="acc__head">
           <span class="acc__ic">${pearlIcon}</span>
           <span class="acc__t">${esc(b.t)}</span>
@@ -585,6 +585,19 @@
     }
   }
 
+  // Single-open accordion. Modern browsers do this natively via the shared
+  // `name` attribute; this is the fallback for browsers without that support.
+  function wireAccordion() {
+    document.querySelectorAll('.acc').forEach((acc) => {
+      const items = Array.from(acc.querySelectorAll('.acc__item'));
+      items.forEach((d) => {
+        d.addEventListener('toggle', () => {
+          if (d.open) items.forEach((o) => { if (o !== d) o.open = false; });
+        });
+      });
+    });
+  }
+
   function wireReveals() {
     const io = new IntersectionObserver((ents) => {
       ents.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -629,7 +642,7 @@
       `<main${isHome ? '' : ' class="subpage"'}>${page(t)}</main>` +
       siteFooter(t);
 
-    if (isHome) wireLineup();
+    if (isHome) { wireLineup(); wireAccordion(); }
     wireNav();
     wireReveals();
     window.scrollTo(0, 0);
