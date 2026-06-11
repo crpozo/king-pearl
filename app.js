@@ -69,6 +69,7 @@
       <div class="hero__center">
         <h1 class="display hero__h">${esc(head[0])}<br />${esc(head[1])}</h1>
         <div class="hero__sub">${(Array.isArray(t.hero.sub) ? t.hero.sub : [t.hero.sub]).map((p) => `<p>${esc(p)}</p>`).join('')}</div>
+        <span class="hero__badge">${boltIcon}${esc(t.ship.badge)}</span>
         <a class="hero__cta" href="#sabores">${esc(t.cta.flavors)} <span aria-hidden="true">›</span></a>
       </div>
       <svg class="hero__wave" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
@@ -392,6 +393,7 @@
       const steps = r.steps.map((x) => `<li>${esc(x)}</li>`).join('');
       return `
         <article class="rec__card reveal d${(i % 3) + 1}" data-cat="${r.cat}">
+          ${r.img ? `<figure class="rec__media"><img src="${r.img}" alt="${esc(r.name)}" loading="lazy" /></figure>` : ''}
           <span class="rec__badge">${esc(catLabel[r.cat] || '')}</span>
           <h3 class="rec__name">${esc(r.name)}</h3>
           <div class="rec__block">
@@ -504,6 +506,67 @@
   const pinIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>`;
   const clockIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`;
   const phoneIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2 2.2A16 16 0 0 1 4.3 5.5a2 2 0 0 1 2.2-2Z"/></svg>`;
+  const truckIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h12v9H2z"/><path d="M14 10h4l3.2 3.2V16H14"/><circle cx="6.2" cy="17.8" r="1.9"/><circle cx="17.2" cy="17.8" r="1.9"/></svg>`;
+  const mailIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 5.7 8-5.7"/></svg>`;
+  const boltIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>`;
+  const starIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6z"/></svg>`;
+  const medalIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="m8.6 13.6-2.1 7 5.5-3 5.5 3-2.1-7"/></svg>`;
+  const chartIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="m4.5 15.5 5-5 3.5 3.5L20 7"/><path d="M15.5 7H20v4.5"/></svg>`;
+  const sparkIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 3l1.7 4.8L17.5 9.5l-4.8 1.7L11 16l-1.7-4.8L4.5 9.5l4.8-1.7L11 3z"/><path d="M18.5 14l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6z"/></svg>`;
+
+  // Full-width delivery strip: 24h badge + nationwide shipping note.
+  function shipBar(t) {
+    return `
+    <section class="ship">
+      <div class="wrap ship__inner reveal">
+        <span class="ship__badge">${boltIcon}${esc(t.ship.badge)}</span>
+        <p class="ship__text">${truckIcon}<span>${esc(t.ship.text)}</span></p>
+      </div>
+    </section>`;
+  }
+
+  function whySec(t) {
+    const w = t.why;
+    const icons = [medalIcon, chartIcon, sparkIcon];
+    const cards = w.items.map((it, i) => `
+      <article class="why__card reveal d${i + 1}">
+        <span class="why__ic">${icons[i % icons.length]}</span>
+        <h3 class="why__t">${esc(it.t)}</h3>
+        <p class="why__d">${esc(it.d)}</p>
+      </article>`).join('');
+    return `
+    <section class="why" id="por-que">
+      <div class="wrap">
+        <div class="why__head">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(w.eyebrow)}</span>
+          <h2 class="display sec-title reveal d1">${esc(w.title)}</h2>
+        </div>
+        <div class="why__grid">${cards}</div>
+        <p class="display why__slogan reveal d2">“${esc(w.slogan)}”</p>
+      </div>
+    </section>`;
+  }
+
+  function reviewsSec(t) {
+    const r = t.reviews;
+    const stars = `<span class="rv__stars" aria-label="5/5">${starIcon.repeat(5)}</span>`;
+    const cards = r.items.map((it, i) => `
+      <article class="rv__card reveal d${i + 1}">
+        ${stars}
+        <p class="rv__text">“${esc(it.text)}”</p>
+        <footer class="rv__who"><b>${esc(it.name)}</b><span>${esc(it.biz)}</span></footer>
+      </article>`).join('');
+    return `
+    <section class="rv" id="reviews">
+      <div class="wrap">
+        <div class="rv__head">
+          <span class="eyebrow reveal"><span class="sq"></span>${esc(r.eyebrow)}</span>
+          <h2 class="display sec-title reveal d1">${esc(r.title)}</h2>
+        </div>
+        <div class="rv__grid">${cards}</div>
+      </div>
+    </section>`;
+  }
 
   function contactSection(t) {
     const c = t.contact;
@@ -534,6 +597,14 @@
             <span class="ct__field-ic">${clockIcon}</span>
             <div class="ct__field-grow"><span class="ct__field-lbl">${esc(c.hoursLabel)}</span><div class="ct__hours">${hours}</div></div>
           </div>
+          <div class="ct__field">
+            <span class="ct__field-ic">${truckIcon}</span>
+            <div><span class="ct__field-lbl">${esc(c.shipLabel)}</span><p class="ct__addr">${esc(t.ship.text)}</p></div>
+          </div>
+          <div class="ct__field">
+            <span class="ct__field-ic">${mailIcon}</span>
+            <div><span class="ct__field-lbl">${esc(c.emailLabel)}</span><p class="ct__addr"><a class="ct__mail" href="mailto:${CONTACT.email}">${esc(CONTACT.email)}</a></p></div>
+          </div>
           <div class="ct__btns">
             <a class="btn ct__wa-btn" href="${CONTACT.waLink}" target="_blank" rel="noopener">${waIcon}WhatsApp</a>
             <a class="btn ct__call-btn" href="${CONTACT.telLink}">${phoneIcon}${esc(c.call)}</a>
@@ -546,7 +617,43 @@
           <a class="btn ct__dir-btn" href="${CONTACT.mapsLink}" target="_blank" rel="noopener">${pinIcon}${esc(c.directions)} <span aria-hidden="true">→</span></a>
         </div>
       </div>
+      ${contactForm(c.form)}
     </section>`;
+  }
+
+  // Static site: submissions go to CONTACT.email through FormSubmit's AJAX API.
+  function contactForm(f) {
+    return `
+      <div class="wrap ct__form-wrap reveal">
+        <form class="ct__form" id="ct-form">
+          <div class="ct__form-head">
+            <h3 class="ct__form-title">${esc(f.title)}</h3>
+            <p class="ct__form-sub">${esc(f.sub)}</p>
+          </div>
+          <div class="ct__form-grid">
+            <label class="ct__fld">
+              <span class="ct__fld-lbl">${esc(f.name)}</span>
+              <input class="ct__in" name="name" type="text" placeholder="${esc(f.namePh)}" required autocomplete="name" maxlength="80" />
+            </label>
+            <label class="ct__fld">
+              <span class="ct__fld-lbl">${esc(f.reach)}</span>
+              <input class="ct__in" name="reach" type="text" placeholder="${esc(f.reachPh)}" required maxlength="120" />
+            </label>
+            <label class="ct__fld">
+              <span class="ct__fld-lbl">${esc(f.biz)} <em>${esc(f.bizOpt)}</em></span>
+              <input class="ct__in" name="biz" type="text" placeholder="${esc(f.bizPh)}" autocomplete="organization" maxlength="80" />
+            </label>
+            <label class="ct__fld ct__fld--full">
+              <span class="ct__fld-lbl">${esc(f.msg)}</span>
+              <textarea class="ct__in ct__ta" name="msg" rows="4" placeholder="${esc(f.msgPh)}" required maxlength="600"></textarea>
+            </label>
+          </div>
+          <div class="ct__form-foot">
+            <button class="btn ct__wa-btn ct__form-send" type="submit">${mailIcon}${esc(f.send)}</button>
+            <p class="ct__form-note" id="ct-form-status" role="status">${esc(f.note)}</p>
+          </div>
+        </form>
+      </div>`;
   }
 
   function siteFooter(t) {
@@ -580,6 +687,7 @@
             <div class="ft__col">
               <h4>${esc(c.cols_contact)}</h4>
               <a href="${CONTACT.waLink}" target="_blank" rel="noopener">${esc(CONTACT.whatsapp)}</a>
+              <a href="mailto:${CONTACT.email}">${esc(CONTACT.email)}</a>
             </div>
             <div class="ft__col">
               <h4>${esc(c.cities)}</h4>
@@ -632,6 +740,41 @@
     });
   }
 
+  function wireContactForm() {
+    const form = document.getElementById('ct-form');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = I18N[lang].contact.form;
+      const status = document.getElementById('ct-form-status');
+      const btn = form.querySelector('.ct__form-send');
+      const v = (n) => form.elements[n].value.trim();
+      btn.disabled = true;
+      status.className = 'ct__form-note';
+      status.textContent = f.sending;
+      try {
+        const res = await fetch(`https://formsubmit.co/ajax/${CONTACT.email}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            _subject: f.subject, _template: 'table', _captcha: 'false',
+            [f.name]: v('name'), [f.reach]: v('reach'),
+            [f.biz]: v('biz') || '—', [f.msg]: v('msg')
+          })
+        });
+        if (!res.ok) throw new Error('formsubmit ' + res.status);
+        form.reset();
+        status.classList.add('is-ok');
+        status.textContent = f.ok;
+      } catch (err) {
+        status.classList.add('is-err');
+        status.textContent = f.err;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+
   function wireReveals() {
     const io = new IntersectionObserver((ents) => {
       ents.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -640,7 +783,7 @@
   }
 
   // --- pages ----------------------------------------------------------------
-  const pageHome = (t) => hero(t) + whatare(t) + productLineup(t) + usagePreview(t) + contactSection(t);
+  const pageHome = (t) => hero(t) + whatare(t) + productLineup(t) + shipBar(t) + whySec(t) + reviewsSec(t) + usagePreview(t) + contactSection(t);
   const pageUsos = (t) => pageBanner(t.usage.tag, t.usage.title, t.usage.intro) + usage(t, true) + care(t);
   const pageRecetas = (t) => pageBanner(t.recipes.tag, t.recipes.title, t.recipes.intro) + recipes(t, true);
   const pageNosotros = (t) => pageBanner(t.about.tag, t.about.pageTitle, t.about.pageSub) + about(t) + features(t) + biz(t) + contactSection(t);
@@ -678,6 +821,7 @@
 
     if (isHome) { wireLineup(); wireAccordion(); }
     wireNav();
+    wireContactForm();
     wireReveals();
     window.scrollTo(0, 0);
   }

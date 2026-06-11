@@ -170,31 +170,31 @@
         ingLabel: 'Ingredientes', stepLabel: 'Preparación',
         catDrink: 'Bebida', catDessert: 'Postre', catCocktail: 'Coctel',
         list: [
-          { name: 'Bubble Tea Clásico Frutal', cat: 'drink',
+          { name: 'Bubble Tea Clásico Frutal', cat: 'drink', img: 'assets/rec-bubble-tea.jpg',
             ing: ['250 ml de té frío', '30 ml de jarabe de frutas', 'Hielo', '60 g de perlas explosivas'],
             steps: ['Coloca hielo en el vaso.', 'Agrega el té y el jarabe.', 'Mezcla bien.', 'Añade las perlas al final.', 'Sirve con sorbete ancho.'] },
-          { name: 'Limonada Explosiva', cat: 'drink',
+          { name: 'Limonada Explosiva', cat: 'drink', img: 'assets/rec-limonada.jpg',
             ing: ['Jugo de 2 limones', '300 ml de agua fría', 'Azúcar al gusto', 'Hielo', '50 g de perlas de fresa o maracuyá'],
             steps: ['Mezcla limón, agua y azúcar.', 'Agrega hielo.', 'Incorpora las perlas al final.', 'Decora con una rodaja de limón.'] },
-          { name: 'Smoothie Tropical Premium', cat: 'drink',
+          { name: 'Smoothie Tropical Premium', cat: 'drink', img: 'assets/rec-smoothie.jpg',
             ing: ['1 taza de mango congelado', '½ taza de piña', '200 ml de yogurt o leche', 'Hielo', '60 g de perlas explosivas'],
             steps: ['Licúa las frutas con yogurt y hielo.', 'Sirve en vaso alto.', 'Añade las perlas encima.'] },
-          { name: 'Granizado King Pearl', cat: 'drink',
+          { name: 'Granizado King Pearl', cat: 'drink', img: 'assets/rec-granizado.jpg',
             ing: ['300 ml de bebida frutal', 'Hielo triturado', 'Jarabe al gusto', '70 g de perlas explosivas'],
             steps: ['Licúa el hielo con la bebida.', 'Sirve en vaso grande.', 'Agrega las perlas y crema batida opcional.'] },
-          { name: 'Mojito Explosivo', cat: 'cocktail',
+          { name: 'Mojito Explosivo', cat: 'cocktail', img: 'assets/rec-mojito.jpg',
             ing: ['Hierbabuena', 'Jugo de limón', 'Agua mineral', 'Ron', 'Hielo', '50 g de perlas explosivas'],
             steps: ['Machaca hierbabuena y limón.', 'Agrega hielo y ron.', 'Completa con agua mineral.', 'Añade las perlas al final.'] },
-          { name: 'Yogurt con Perlas', cat: 'dessert',
+          { name: 'Yogurt con Perlas', cat: 'dessert', img: 'assets/rec-yogurt.jpg',
             ing: ['Yogurt griego', 'Frutas picadas', 'Granola', '40 g de perlas explosivas'],
             steps: ['Coloca yogurt en un vaso.', 'Agrega frutas y granola.', 'Decora con perlas explosivas.'] },
-          { name: 'Waffle Premium', cat: 'dessert',
+          { name: 'Waffle Premium', cat: 'dessert', img: 'assets/rec-waffle.jpg',
             ing: ['Waffle preparado', 'Helado', 'Salsa de chocolate', '50 g de perlas explosivas'],
             steps: ['Sirve el waffle caliente.', 'Añade helado y salsa.', 'Decora con perlas explosivas.'] },
-          { name: 'Cheesecake Decorativo', cat: 'dessert',
+          { name: 'Cheesecake Decorativo', cat: 'dessert', img: 'assets/rec-cheesecake.jpg',
             ing: ['Cheesecake individual', 'Salsa de frutas', '30 g de perlas explosivas'],
             steps: ['Decora el cheesecake con salsa.', 'Coloca las perlas encima antes de servir.'] },
-          { name: 'Frappé Explosivo', cat: 'drink',
+          { name: 'Frappé Explosivo', cat: 'drink', img: 'assets/rec-frappe.jpg',
             ing: ['250 ml de leche', 'Café o chocolate', 'Hielo', 'Crema batida', '60 g de perlas explosivas'],
             steps: ['Licúa leche, hielo y saborizante.', 'Sirve frío.', 'Decora con crema y perlas.'] }
         ]
@@ -202,12 +202,12 @@
       biz: {
         tag: 'Alianzas', title: 'Beneficios de trabajar con King Pearl',
         items: [
-          { t: 'Soporte y asesoría', d: 'Acompañamiento constante para ayudarte a crecer, mejorar tus productos y ofrecer una mejor experiencia.' },
-          { t: 'Promociones y estrategias', d: 'Promociones especiales y campañas que impulsan las ventas y atraen nuevos clientes.' },
-          { t: 'Activaciones de marca', d: 'Apoyo con activaciones en punto de venta, degustaciones y eventos para dar visibilidad a tu negocio.' },
-          { t: 'Material POP', d: 'Banners, stickers, menús, exhibidores y material visual para fortalecer tu imagen de marca.' },
-          { t: 'Innovación constante', d: 'Nuevos sabores, ideas y tendencias para que siempre ofrezcas productos atractivos.' },
-          { t: 'Calidad y confianza', d: 'Productos de excelente calidad que garantizan sabor, frescura y satisfacción en cada preparación.' }
+          { t: 'Soporte y Asesoría', d: 'Brindamos acompañamiento constante a nuestros clientes para ayudarles a crecer, mejorar sus productos y ofrecer una mejor experiencia a sus consumidores.' },
+          { t: 'Promociones y Estrategias', d: 'Realizamos promociones especiales y campañas que ayudan a impulsar las ventas y atraer nuevos clientes.' },
+          { t: 'Activaciones de Marca', d: 'Apoyamos con activaciones en puntos de venta, degustaciones y eventos para dar mayor visibilidad a los negocios y aumentar el impacto de la marca.' },
+          { t: 'Material POP', d: 'Ofrecemos material publicitario como banners, stickers, menús, exhibidores y material visual para mejorar la presentación del negocio y fortalecer la imagen de marca.' },
+          { t: 'Innovación Constante', d: 'Incorporamos nuevos sabores, ideas y tendencias para que nuestros clientes siempre ofrezcan productos innovadores y atractivos.' },
+          { t: 'Calidad y Confianza', d: 'Trabajamos con productos de excelente calidad para garantizar sabor, frescura y satisfacción en cada preparación.' }
         ]
       },
       about: {
@@ -222,15 +222,53 @@
         wa: 'Escríbenos por WhatsApp', email: 'Correo', city: 'Quito · Guayaquil · Cuenca',
         rights: 'Todos los derechos reservados.',
         explore: 'Explora', cols_contact: 'Contacto', cities: 'Ubicación',
-        ftTag: 'Burbujas explosivas · Ecuador',
+        ftTag: 'Una explosión de sabor en cada burbuja.',
         location: 'Visítanos en Quito',
         showroom: 'Showroom Quito', openNow: 'Abierto ahora', closedNow: 'Cerrado ahora',
         addrLabel: 'Dirección', call: 'Llamar', mapChip: 'Av. El Inca E4–239',
         access: 'Ingresa por Autos Sierra · 2.º piso · Amplios parqueaderos',
+        shipLabel: 'Envíos', emailLabel: 'Correo',
         hoursLabel: 'Horarios',
         hoursLines: ['Lun a Vie · 9:00 – 18:00 h', 'Sáb · 9:30 – 14:00 h'],
         directions: 'Cómo llegar',
-        thanks: 'Gracias por confiar en KING PEARL. Su apoyo y preferencia nos motivan a seguir innovando y ofreciendo productos de la mejor calidad para hacer crecer juntos cada proyecto y emprendimiento.'
+        thanks: 'Gracias por confiar en KING PEARL. Su apoyo y preferencia nos motivan a seguir innovando y ofreciendo productos de la mejor calidad para hacer crecer juntos cada proyecto y emprendimiento.',
+        form: {
+          title: 'Escríbenos directo',
+          sub: 'Cuéntanos qué necesitas y te respondemos en menos de 24 horas.',
+          name: 'Nombre', namePh: 'Tu nombre',
+          reach: 'Correo o WhatsApp', reachPh: 'Para poder responderte',
+          biz: 'Negocio o ciudad', bizOpt: '(opcional)', bizPh: 'Ej. Cafetería Luna · Quito',
+          msg: 'Mensaje', msgPh: '¿Qué sabores te interesan? ¿Cantidades? ¿Ciudad de entrega?',
+          send: 'Enviar mensaje',
+          note: 'También puedes escribirnos directo por WhatsApp.',
+          sending: 'Enviando…',
+          ok: '¡Mensaje enviado! Te responderemos muy pronto.',
+          err: 'No se pudo enviar. Inténtalo de nuevo o escríbenos por WhatsApp.',
+          subject: 'Nuevo mensaje desde el sitio de King Pearl'
+        }
+      },
+      ship: {
+        badge: 'Entrega en 24h',
+        text: 'Realizamos envíos a todo Quito y a nivel nacional.'
+      },
+      why: {
+        eyebrow: 'Ventajas',
+        title: '¿Por qué elegir King Pearl?',
+        items: [
+          { t: 'Calidad Premium', d: 'Nuestras perlas están elaboradas con los más altos estándares, garantizando una textura perfecta y una explosión de sabor auténtico en cada bocado.' },
+          { t: 'Rentabilidad para tu negocio', d: 'El complemento ideal para elevar el valor percibido de tus bebidas, postres y helados, atrayendo a más clientes.' },
+          { t: 'Variedad e Innovación', d: 'Una amplia gama de sabores frutales y colores vibrantes que transforman el menú de cualquier negocio en una experiencia visual y deliciosa.' }
+        ],
+        slogan: 'King Pearl: Una explosión de sabor en cada burbuja.'
+      },
+      reviews: {
+        eyebrow: 'Clientes felices',
+        title: 'Lo que dicen nuestros clientes',
+        items: [
+          { name: 'María Fernanda', biz: 'Cafetería · Quito', text: 'Entrega inmediata: pedí en la mañana y esa misma tarde ya estaba sirviendo bebidas con las perlas.' },
+          { name: 'Andrés', biz: 'Heladería · Guayaquil', text: 'Llegó en menos de 24 horas y en perfecto estado. El de maracuyá es el favorito de mis clientes.' },
+          { name: 'Daniela', biz: 'Bubble tea · Cuenca', text: 'Súper confiables: siempre la misma calidad y te acompañan en todo el proceso del pedido.' }
+        ]
       }
     },
     en: {
@@ -347,31 +385,31 @@
         ingLabel: 'Ingredients', stepLabel: 'Method',
         catDrink: 'Drink', catDessert: 'Dessert', catCocktail: 'Cocktail',
         list: [
-          { name: 'Classic Fruit Bubble Tea', cat: 'drink',
+          { name: 'Classic Fruit Bubble Tea', cat: 'drink', img: 'assets/rec-bubble-tea.jpg',
             ing: ['250 ml cold tea', '30 ml fruit syrup', 'Ice', '60 g bursting pearls'],
             steps: ['Add ice to the glass.', 'Pour in the tea and syrup.', 'Mix well.', 'Add the pearls at the end.', 'Serve with a wide straw.'] },
-          { name: 'Bursting Lemonade', cat: 'drink',
+          { name: 'Bursting Lemonade', cat: 'drink', img: 'assets/rec-limonada.jpg',
             ing: ['Juice of 2 lemons', '300 ml cold water', 'Sugar to taste', 'Ice', '50 g strawberry or passion-fruit pearls'],
             steps: ['Mix lemon, water and sugar.', 'Add ice.', 'Stir in the pearls at the end.', 'Garnish with a lemon slice.'] },
-          { name: 'Tropical Premium Smoothie', cat: 'drink',
+          { name: 'Tropical Premium Smoothie', cat: 'drink', img: 'assets/rec-smoothie.jpg',
             ing: ['1 cup frozen mango', '½ cup pineapple', '200 ml yogurt or milk', 'Ice', '60 g bursting pearls'],
             steps: ['Blend the fruit with yogurt and ice.', 'Serve in a tall glass.', 'Add the pearls on top.'] },
-          { name: 'King Pearl Slushie', cat: 'drink',
+          { name: 'King Pearl Slushie', cat: 'drink', img: 'assets/rec-granizado.jpg',
             ing: ['300 ml fruit drink', 'Crushed ice', 'Syrup to taste', '70 g bursting pearls'],
             steps: ['Blend the ice with the drink.', 'Serve in a large glass.', 'Add the pearls and optional whipped cream.'] },
-          { name: 'Bursting Mojito', cat: 'cocktail',
+          { name: 'Bursting Mojito', cat: 'cocktail', img: 'assets/rec-mojito.jpg',
             ing: ['Mint', 'Lemon juice', 'Sparkling water', 'Rum', 'Ice', '50 g bursting pearls'],
             steps: ['Muddle mint and lemon.', 'Add ice and rum.', 'Top with sparkling water.', 'Add the pearls at the end.'] },
-          { name: 'Yogurt with Pearls', cat: 'dessert',
+          { name: 'Yogurt with Pearls', cat: 'dessert', img: 'assets/rec-yogurt.jpg',
             ing: ['Greek yogurt', 'Chopped fruit', 'Granola', '40 g bursting pearls'],
             steps: ['Place yogurt in a glass.', 'Add fruit and granola.', 'Top with bursting pearls.'] },
-          { name: 'Premium Waffle', cat: 'dessert',
+          { name: 'Premium Waffle', cat: 'dessert', img: 'assets/rec-waffle.jpg',
             ing: ['Prepared waffle', 'Ice cream', 'Chocolate sauce', '50 g bursting pearls'],
             steps: ['Serve the waffle warm.', 'Add ice cream and sauce.', 'Top with bursting pearls.'] },
-          { name: 'Decorated Cheesecake', cat: 'dessert',
+          { name: 'Decorated Cheesecake', cat: 'dessert', img: 'assets/rec-cheesecake.jpg',
             ing: ['Individual cheesecake', 'Fruit sauce', '30 g bursting pearls'],
             steps: ['Decorate the cheesecake with sauce.', 'Place the pearls on top before serving.'] },
-          { name: 'Bursting Frappé', cat: 'drink',
+          { name: 'Bursting Frappé', cat: 'drink', img: 'assets/rec-frappe.jpg',
             ing: ['250 ml milk', 'Coffee or chocolate', 'Ice', 'Whipped cream', '60 g bursting pearls'],
             steps: ['Blend milk, ice and flavoring.', 'Serve cold.', 'Top with cream and pearls.'] }
         ]
@@ -379,12 +417,12 @@
       biz: {
         tag: 'Partnership', title: 'Benefits of working with King Pearl',
         items: [
-          { t: 'Support & advice', d: 'Constant guidance to help you grow, improve your products and offer a better experience.' },
-          { t: 'Promotions & strategy', d: 'Special promotions and campaigns that boost sales and attract new customers.' },
-          { t: 'Brand activations', d: 'Support with point-of-sale activations, tastings and events to give your business visibility.' },
-          { t: 'POP material', d: 'Banners, stickers, menus, displays and visual material to strengthen your brand image.' },
-          { t: 'Constant innovation', d: 'New flavors, ideas and trends so you always offer attractive products.' },
-          { t: 'Quality & trust', d: 'Excellent-quality products that guarantee flavor, freshness and satisfaction every time.' }
+          { t: 'Support & Advice', d: 'We provide constant guidance to our clients to help them grow, improve their products and offer a better experience to their consumers.' },
+          { t: 'Promotions & Strategy', d: 'We run special promotions and campaigns that help boost sales and attract new customers.' },
+          { t: 'Brand Activations', d: 'We support point-of-sale activations, tastings and events to give businesses greater visibility and increase brand impact.' },
+          { t: 'POP Material', d: 'We provide advertising material such as banners, stickers, menus, displays and visual assets to improve your presentation and strengthen your brand image.' },
+          { t: 'Constant Innovation', d: 'We bring in new flavors, ideas and trends so our clients always offer innovative, attractive products.' },
+          { t: 'Quality & Trust', d: 'We work with excellent-quality products to guarantee flavor, freshness and satisfaction in every preparation.' }
         ]
       },
       about: {
@@ -399,15 +437,53 @@
         wa: 'Message us on WhatsApp', email: 'Email', city: 'Quito · Guayaquil · Cuenca',
         rights: 'All rights reserved.',
         explore: 'Explore', cols_contact: 'Contact', cities: 'Location',
-        ftTag: 'Bursting bubbles · Ecuador',
+        ftTag: 'A burst of flavor in every bubble.',
         location: 'Visit us in Quito',
         showroom: 'Quito showroom', openNow: 'Open now', closedNow: 'Closed now',
         addrLabel: 'Address', call: 'Call', mapChip: 'Av. El Inca E4–239',
         access: 'Enter through Autos Sierra · 2nd floor · Ample parking',
+        shipLabel: 'Delivery', emailLabel: 'Email',
         hoursLabel: 'Hours',
         hoursLines: ['Mon–Fri · 9:00 – 18:00', 'Sat · 9:30 – 14:00'],
         directions: 'Get directions',
-        thanks: 'Thank you for trusting KING PEARL. Your support and preference motivate us to keep innovating and offering the highest-quality products to grow every project and venture together.'
+        thanks: 'Thank you for trusting KING PEARL. Your support and preference motivate us to keep innovating and offering the highest-quality products to grow every project and venture together.',
+        form: {
+          title: 'Write to us directly',
+          sub: "Tell us what you need and we'll get back to you within 24 hours.",
+          name: 'Name', namePh: 'Your name',
+          reach: 'Email or WhatsApp', reachPh: 'So we can get back to you',
+          biz: 'Business or city', bizOpt: '(optional)', bizPh: 'E.g. Luna Café · Quito',
+          msg: 'Message', msgPh: 'Which flavors interest you? Quantities? Delivery city?',
+          send: 'Send message',
+          note: 'You can also message us directly on WhatsApp.',
+          sending: 'Sending…',
+          ok: 'Message sent! We will get back to you very soon.',
+          err: "We couldn't send it. Try again or message us on WhatsApp.",
+          subject: 'New message from the King Pearl site'
+        }
+      },
+      ship: {
+        badge: '24h delivery',
+        text: 'We deliver across Quito and nationwide.'
+      },
+      why: {
+        eyebrow: 'Why us',
+        title: 'Why choose King Pearl?',
+        items: [
+          { t: 'Premium quality', d: 'Our pearls are crafted to the highest standards, guaranteeing perfect texture and an authentic burst of flavor in every bite.' },
+          { t: 'Profitability for your business', d: 'The ideal add-on to raise the perceived value of your drinks, desserts and ice cream, attracting more customers.' },
+          { t: 'Variety & innovation', d: 'A wide range of fruit flavors and vibrant colors that turn any menu into a visual, delicious experience.' }
+        ],
+        slogan: 'King Pearl: a burst of flavor in every bubble.'
+      },
+      reviews: {
+        eyebrow: 'Happy customers',
+        title: 'What our customers say',
+        items: [
+          { name: 'María Fernanda', biz: 'Café · Quito', text: 'Immediate delivery: I ordered in the morning and was serving drinks with the pearls that same afternoon.' },
+          { name: 'Andrés', biz: 'Ice-cream shop · Guayaquil', text: 'It arrived in under 24 hours and in perfect condition. Passion fruit is my customers’ favorite.' },
+          { name: 'Daniela', biz: 'Bubble tea · Cuenca', text: 'Super reliable: always the same quality and they walk you through the whole order.' }
+        ]
       }
     }
   };
@@ -416,7 +492,7 @@
     whatsapp: '+593 98 523 8661',
     waLink: 'https://wa.me/593985238661',
     telLink: 'tel:+593985238661',
-    email: 'hola@kingpearl.ec',
+    email: 'bobasecu@gmail.com',
     instagram: '@kingpearl2026',
     igLink: 'https://instagram.com/kingpearl2026',
     fbLink: 'https://www.facebook.com/profile.php?id=61590114514296',

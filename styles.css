@@ -13,10 +13,10 @@
   --mango:#FF9E1B; --cereza:#D7263D; --manzana:#7AC70C;
   --frambuesa:#E8245A; --arandano:#7B2FBF; --fresa:#FF3B5C;
   --maracuya:#FF9E1B;
-  --brand:#5A1A82;       /* royal purple (Gong Cha-style bold color) */
+  --brand:#9c008b;       /* brand magenta (bold backgrounds) */
   --accent:#43AC28;      /* green accent (seals / CTA) */
-  --green-deep:#3B0F5C;  /* deep purple bands/footer */
-  --green-ink:#5A1A82;   /* headings purple */
+  --green-deep:#9c008b;  /* magenta bands/footer (brand) */
+  --green-ink:#9c008b;   /* headings magenta */
   --ease:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -139,6 +139,10 @@ body.no-motion .wafab{animation:none}
 .hero__cta{display:inline-flex;align-items:center;gap:.5em;background:#fff;color:var(--brand);font-weight:800;font-size:16px;
   padding:1.05em 2em;border-radius:999px;transition:transform .3s var(--ease),box-shadow .3s}
 .hero__cta:hover{transform:translateY(-3px);box-shadow:0 16px 36px -12px rgba(0,0,0,.4)}
+.hero__badge{display:flex;width:fit-content;align-items:center;gap:.5em;margin:-16px auto 26px;
+  padding:.6em 1.25em;border-radius:999px;background:var(--accent);color:#fff;
+  font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+.hero__badge svg{width:15px;height:15px}
 .hero__cup{position:absolute;bottom:9%;width:clamp(210px,25vw,390px);border-radius:24px;z-index:1;
   box-shadow:0 40px 70px -30px rgba(0,0,0,.6)}
 .hero__cup--l{left:-3%;transform:rotate(-6deg)}
@@ -430,6 +434,9 @@ body.no-motion .phero__pearl{animation:none}
   padding:clamp(24px,2.4vw,32px);box-shadow:0 24px 54px -40px rgba(36,24,38,.5);
   transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .rec__card:hover{transform:translateY(-6px);box-shadow:0 34px 66px -36px rgba(36,24,38,.55)}
+.rec__media{margin:calc(clamp(24px,2.4vw,32px) * -1) calc(clamp(24px,2.4vw,32px) * -1) 18px;
+  border-radius:24px 24px 0 0;overflow:hidden}
+.rec__media img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
 .rec__badge{display:inline-block;font-weight:800;font-size:11px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--green-ink);background:color-mix(in srgb,var(--brand) 11%,#fff);
   padding:.42em .85em;border-radius:999px;margin-bottom:14px}
@@ -475,6 +482,41 @@ body.no-motion .phero__pearl{animation:none}
 .st__l{display:block;margin-top:8px;font-weight:700;color:var(--ink-soft);font-size:15px}
 
 /* ---------------- CONTACT + FOOTER (deep purple) ---------------- */
+/* delivery strip */
+.ship{background:var(--green-deep);color:#fff;padding:24px 0}
+.ship__inner{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center}
+.ship__badge{display:inline-flex;align-items:center;gap:.5em;background:#fff;color:var(--green-deep);
+  font-weight:800;padding:.55em 1.15em;border-radius:999px;font-size:13.5px;
+  text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.ship__badge svg{width:15px;height:15px}
+.ship__text{display:inline-flex;align-items:center;gap:.6em;font-weight:700;font-size:clamp(15px,1.4vw,18px)}
+.ship__text svg{width:20px;height:20px;flex:0 0 auto}
+
+/* why choose us */
+.why{padding:clamp(70px,7vw,110px) 0;background:color-mix(in srgb,var(--brand) 5%,#fff)}
+.why__grid{margin-top:clamp(28px,3vw,44px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,28px)}
+.why__card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(24px,2.4vw,34px);
+  display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 40px -28px rgba(36,24,38,.35)}
+.why__ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;
+  background:color-mix(in srgb,var(--brand) 10%,#fff);color:var(--green-ink)}
+.why__ic svg{width:26px;height:26px}
+.why__t{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(18px,1.5vw,22px);color:var(--green-ink)}
+.why__d{color:var(--ink-soft);line-height:1.65;font-weight:600;font-size:clamp(15px,1.2vw,17px)}
+.why__slogan{margin-top:clamp(34px,4vw,56px);text-align:center;color:var(--green-ink);
+  font-size:clamp(20px,2.4vw,34px);line-height:1.25}
+
+/* reviews */
+.rv{padding:clamp(70px,7vw,110px) 0;background:var(--cream)}
+.rv__grid{margin-top:clamp(28px,3vw,44px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,28px)}
+.rv__card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(22px,2.2vw,30px);
+  display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 40px -28px rgba(36,24,38,.35)}
+.rv__stars{display:inline-flex;gap:3px;color:#FFB400}
+.rv__stars svg{width:18px;height:18px}
+.rv__text{font-size:clamp(15.5px,1.3vw,18px);line-height:1.6;font-weight:600}
+.rv__who{display:flex;flex-direction:column;gap:2px;margin-top:auto}
+.rv__who b{color:var(--green-ink);font-weight:800}
+.rv__who span{color:var(--ink-soft);font-size:14px;font-weight:600}
+
 .ct{padding:clamp(82px,9vw,118px) 0 0;background:var(--green-deep);color:#fff;overflow:hidden}
 /* header row: title + open/closed status */
 .ct__top2{display:flex;flex-direction:column;align-items:flex-start;gap:16px;text-align:left}
@@ -494,7 +536,7 @@ body.no-motion .phero__pearl{animation:none}
 .ct__card,.ct__map-card{background:rgba(255,255,255,.06);border-radius:24px}
 .ct__card{padding:clamp(20px,2.2vw,30px);display:flex;flex-direction:column;gap:clamp(22px,2.4vw,30px)}
 .ct__photo{position:relative;margin:0;border-radius:16px;overflow:hidden}
-.ct__photo img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+.ct__photo img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;object-position:center 64%}
 .ct__photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;font-size:13px;
   font-weight:700;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.72),transparent)}
 .ct__field{display:flex;align-items:flex-start;gap:16px}
@@ -524,9 +566,36 @@ body.no-motion .phero__pearl{animation:none}
 /* intro note under the title */
 .ct__thanks{max-width:70ch;margin:0;font-size:clamp(15px,1.3vw,18px);line-height:1.65;
   color:rgba(255,255,255,.82);font-weight:600}
+/* contact form → WhatsApp */
+.ct__form-wrap{margin-top:clamp(26px,3vw,48px)}
+.ct__form{background:rgba(255,255,255,.06);border-radius:24px;padding:clamp(22px,2.6vw,36px);
+  display:flex;flex-direction:column;gap:clamp(18px,2vw,26px);text-align:left}
+.ct__form-title{font-size:clamp(20px,2vw,26px);color:#fff}
+.ct__form-sub{margin-top:6px;color:rgba(255,255,255,.72);font-size:15.5px;line-height:1.55}
+.ct__form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ct__fld{display:flex;flex-direction:column;gap:8px}
+.ct__fld--full{grid-column:1/-1}
+.ct__fld-lbl{font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:11.5px;
+  color:rgba(255,255,255,.66)}
+.ct__fld-lbl em{font-style:normal;text-transform:none;letter-spacing:0;font-weight:600;
+  color:rgba(255,255,255,.42)}
+.ct__in{width:100%;padding:.95em 1.1em;border-radius:14px;border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);color:#fff;font:inherit;font-size:15.5px;
+  transition:border-color .2s,background .2s}
+.ct__in::placeholder{color:rgba(255,255,255,.38)}
+.ct__in:focus{outline:none;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.12)}
+.ct__ta{resize:vertical;min-height:110px}
+.ct__form-foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.ct__form-send{padding:1.05em 1.6em}
+.ct__form-note{font-size:13.5px;color:rgba(255,255,255,.55)}
+.ct__form-note.is-ok{color:#7ef0c0;font-weight:700}
+.ct__form-note.is-err{color:#ffb4b4;font-weight:700}
+.ct__form-send:disabled{opacity:.6;cursor:wait}
+.ct__mail:hover{text-decoration:underline}
 @media(max-width:760px){
   .ct__loc{grid-template-columns:1fr;gap:18px}
   .ct__top2{flex-direction:column}
+  .ct__form-grid{grid-template-columns:1fr}
 }
 .ft{background:var(--green-deep);color:#fff;padding:92px 0 30px}
 .ft__social{display:flex;gap:12px;margin-top:6px}
@@ -573,6 +642,8 @@ body.no-motion .phero__pearl{animation:none}
   .use__grid{grid-template-columns:1fr}
   .usos__grid{grid-template-columns:1fr}
   .ab__stats{grid-template-columns:1fr;gap:24px;text-align:left}
+  .rv__grid{grid-template-columns:1fr;gap:16px}
+  .why__grid{grid-template-columns:1fr;gap:16px}
 }
 @media(max-width:680px){
   .ft__cols{grid-template-columns:1fr 1fr}
