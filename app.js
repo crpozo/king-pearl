@@ -609,6 +609,7 @@
   // Static site: submissions go to CONTACT.email through FormSubmit's AJAX API.
   function contactForm(f) {
     return `
+      <div class="ct__form-band">
       <div class="wrap ct__form-wrap reveal">
         <form class="ct__form" id="ct-form">
           <div class="ct__form-head">
@@ -638,6 +639,7 @@
             <p class="ct__form-note" id="ct-form-status" role="status">${esc(f.note)}</p>
           </div>
         </form>
+      </div>
       </div>`;
   }
 
