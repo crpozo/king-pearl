@@ -512,9 +512,6 @@
   const mailIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 5.7 8-5.7"/></svg>`;
   const boltIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>`;
   const starIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6z"/></svg>`;
-  const medalIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="m8.6 13.6-2.1 7 5.5-3 5.5 3-2.1-7"/></svg>`;
-  const chartIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="m4.5 15.5 5-5 3.5 3.5L20 7"/><path d="M15.5 7H20v4.5"/></svg>`;
-  const sparkIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 3l1.7 4.8L17.5 9.5l-4.8 1.7L11 16l-1.7-4.8L4.5 9.5l4.8-1.7L11 3z"/><path d="M18.5 14l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9.9-2.6z"/></svg>`;
 
   // Full-width delivery strip: 24h badge + nationwide shipping note.
   function shipBar(t) {
@@ -529,22 +526,27 @@
 
   function whySec(t) {
     const w = t.why;
-    const icons = [medalIcon, chartIcon, sparkIcon];
-    const cards = w.items.map((it, i) => `
-      <article class="why__card reveal d${i + 1}">
-        <span class="why__ic">${icons[i % icons.length]}</span>
+    // Numbered full-width bands: brand magenta, leaf green, mango orange.
+    const colors = ['#9C008B', '#52A83C', '#F0A03C'];
+    const rows = w.items.map((it, i) => `
+      <article class="why__row reveal d${i + 1}" style="--c:${colors[i % colors.length]}">
+        <span class="why__num" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
         <h3 class="why__t">${esc(it.t)}</h3>
         <p class="why__d">${esc(it.d)}</p>
       </article>`).join('');
+    // Gold highlight on the slogan's last word ("burbuja" / "bubble").
+    const slogan = esc(w.slogan).replace(/([^\s.!?]+)([.!?]*)$/, '<span class="why__hl">$1</span>$2');
     return `
     <section class="why" id="por-que">
       <div class="wrap">
-        <div class="why__head">
-          <span class="eyebrow reveal"><span class="sq"></span>${esc(w.eyebrow)}</span>
-          <h2 class="display sec-title reveal d1">${esc(w.title)}</h2>
+        <div class="why__panel reveal">
+          <div class="why__head">
+            <span class="eyebrow reveal"><span class="sq"></span>${esc(w.eyebrow)}</span>
+            <h2 class="display sec-title reveal d1">${esc(w.title)}</h2>
+          </div>
+          <div class="why__rows">${rows}</div>
+          <p class="display why__slogan">“${slogan}”</p>
         </div>
-        <div class="why__grid">${cards}</div>
-        <p class="display why__slogan reveal d2">“${esc(w.slogan)}”</p>
       </div>
     </section>`;
   }

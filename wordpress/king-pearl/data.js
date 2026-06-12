@@ -256,9 +256,9 @@
         eyebrow: 'Ventajas',
         title: '¿Por qué elegir King Pearl?',
         items: [
-          { t: 'Calidad Premium', d: 'Nuestras perlas están elaboradas con los más altos estándares, garantizando una textura perfecta y una explosión de sabor auténtico en cada bocado.' },
+          { t: 'Calidad Premium', d: 'Perlas elaboradas con los más altos estándares: textura perfecta y una explosión de sabor auténtico en cada bocado.' },
           { t: 'Rentabilidad para tu negocio', d: 'El complemento ideal para elevar el valor percibido de tus bebidas, postres y helados, atrayendo a más clientes.' },
-          { t: 'Variedad e Innovación', d: 'Una amplia gama de sabores frutales y colores vibrantes que transforman el menú de cualquier negocio en una experiencia visual y deliciosa.' }
+          { t: 'Variedad e Innovación', d: 'Sabores frutales y colores vibrantes que transforman el menú en una experiencia visual y deliciosa.' }
         ],
         slogan: 'King Pearl: Una explosión de sabor en cada burbuja.'
       },
@@ -469,9 +469,9 @@
         eyebrow: 'Why us',
         title: 'Why choose King Pearl?',
         items: [
-          { t: 'Premium quality', d: 'Our pearls are crafted to the highest standards, guaranteeing perfect texture and an authentic burst of flavor in every bite.' },
+          { t: 'Premium quality', d: 'Pearls crafted to the highest standards: perfect texture and an authentic burst of flavor in every bite.' },
           { t: 'Profitability for your business', d: 'The ideal add-on to raise the perceived value of your drinks, desserts and ice cream, attracting more customers.' },
-          { t: 'Variety & innovation', d: 'A wide range of fruit flavors and vibrant colors that turn any menu into a visual, delicious experience.' }
+          { t: 'Variety & innovation', d: 'Fruit flavors and vibrant colors that turn any menu into a visual, delicious experience.' }
         ],
         slogan: 'King Pearl: a burst of flavor in every bubble.'
       },

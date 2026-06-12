@@ -495,18 +495,25 @@ body.no-motion .phero__pearl{animation:none}
 .ship__text{display:inline-flex;align-items:center;gap:.6em;font-weight:700;font-size:clamp(15px,1.4vw,18px)}
 .ship__text svg{width:20px;height:20px;flex:0 0 auto}
 
-/* why choose us */
+/* why choose us — numbered color bands inside a rounded white panel */
 .why{padding:clamp(70px,7vw,110px) 0;background:color-mix(in srgb,var(--brand) 5%,#fff)}
-.why__grid{margin-top:clamp(28px,3vw,44px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,28px)}
-.why__card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(24px,2.4vw,34px);
-  display:flex;flex-direction:column;gap:14px;box-shadow:0 18px 40px -28px rgba(36,24,38,.35)}
-.why__ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;
-  background:color-mix(in srgb,var(--brand) 10%,#fff);color:var(--green-ink)}
-.why__ic svg{width:26px;height:26px}
-.why__t{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(18px,1.5vw,22px);color:var(--green-ink)}
-.why__d{color:var(--ink-soft);line-height:1.65;font-weight:600;font-size:clamp(15px,1.2vw,17px)}
-.why__slogan{margin-top:clamp(34px,4vw,56px);text-align:center;color:var(--green-ink);
-  font-size:clamp(20px,2.4vw,34px);line-height:1.25}
+.why__panel{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;
+  box-shadow:0 30px 70px -42px rgba(36,24,38,.4)}
+.why__head{padding:clamp(30px,3.6vw,52px) clamp(22px,4vw,56px) clamp(26px,2.8vw,40px)}
+.why__head .sec-title{color:var(--ink)}
+.why__rows{display:flex;flex-direction:column}
+.why__row{display:grid;grid-template-columns:clamp(64px,8vw,110px) minmax(0,.85fr) minmax(0,1.55fr);
+  grid-template-areas:"num t d";align-items:center;column-gap:clamp(18px,3vw,48px);
+  background:var(--c,var(--brand));color:#fff;padding:clamp(26px,3.3vw,46px) clamp(22px,4vw,56px)}
+.why__num{grid-area:num;font-family:'Baloo 2',sans-serif;font-weight:800;line-height:1;
+  font-size:clamp(38px,4.2vw,62px);color:color-mix(in srgb,var(--c,var(--brand)) 52%,#fff)}
+.why__t{grid-area:t;font-family:'Baloo 2',sans-serif;font-weight:800;color:#fff;
+  font-size:clamp(19px,1.7vw,25px);line-height:1.25}
+.why__d{grid-area:d;color:rgba(255,255,255,.94);line-height:1.6;font-weight:600;
+  font-size:clamp(14.5px,1.2vw,17px)}
+.why__slogan{margin:0;padding:clamp(30px,3.6vw,48px) clamp(22px,4vw,56px);text-align:center;
+  background:#2B0726;color:#fff;font-size:clamp(18px,2.3vw,32px);line-height:1.35}
+.why__hl{color:#F2B33D}
 
 /* reviews */
 .rv{padding:clamp(70px,7vw,110px) 0;background:var(--cream)}
@@ -658,7 +665,9 @@ body.no-motion .phero__pearl{animation:none}
   .usos__grid{grid-template-columns:1fr}
   .ab__stats{grid-template-columns:1fr;gap:24px;text-align:left}
   .rv__grid{grid-template-columns:1fr;gap:16px}
-  .why__grid{grid-template-columns:1fr;gap:16px}
+  .why__row{grid-template-columns:auto 1fr;grid-template-areas:"num t" "d d";
+    row-gap:10px;column-gap:18px}
+  .why__num{font-size:34px}
 }
 @media(max-width:680px){
   .ft__cols{grid-template-columns:1fr 1fr}
