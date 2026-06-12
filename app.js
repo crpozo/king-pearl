@@ -569,13 +569,13 @@
 
   function contactSection(t) {
     const c = t.contact;
-    const hours = c.hoursLines.map((h) => {
-      const i = h.indexOf('·');
-      const day = i >= 0 ? h.slice(0, i) : h;
-      const time = i >= 0 ? h.slice(i + 1) : '';
-      return `<div class="ct__hrow"><span>${esc(day.trim())}</span><b>${esc(time.trim())}</b></div>`;
-    }).join('');
+    const hoursLine = c.hoursLines.map((h) => h.replace(' · ', ' ')).join(' · ');
     const mapQ = encodeURIComponent(CONTACT.address);
+    const field = (color, label, value) => `
+          <div class="ct__field">
+            <span class="ct__dot2" style="--c:${color}"></span>
+            <div><span class="ct__field-lbl">${esc(label)}</span><p class="ct__addr">${value}</p></div>
+          </div>`;
     return `
     <section class="ct" id="contacto">
       <div class="wrap ct__top2 reveal">
@@ -588,32 +588,18 @@
             <img src="assets/local-entrada.jpg" alt="Fachada de Autos Sierra — entrada a King Pearl" loading="lazy" />
             <figcaption>${esc(c.access)}</figcaption>
           </figure>
-          <div class="ct__field">
-            <span class="ct__field-ic">${pinIcon}</span>
-            <div><span class="ct__field-lbl">${esc(c.addrLabel)}</span><p class="ct__addr">${esc(CONTACT.address)}</p></div>
-          </div>
-          <div class="ct__field">
-            <span class="ct__field-ic">${clockIcon}</span>
-            <div class="ct__field-grow"><span class="ct__field-lbl">${esc(c.hoursLabel)}</span><div class="ct__hours">${hours}</div></div>
-          </div>
-          <div class="ct__field">
-            <span class="ct__field-ic">${truckIcon}</span>
-            <div><span class="ct__field-lbl">${esc(c.shipLabel)}</span><p class="ct__addr">${esc(t.ship.text)}</p></div>
-          </div>
-          <div class="ct__field">
-            <span class="ct__field-ic">${mailIcon}</span>
-            <div><span class="ct__field-lbl">${esc(c.emailLabel)}</span><p class="ct__addr"><a class="ct__mail" href="mailto:${CONTACT.email}">${esc(CONTACT.email)}</a></p></div>
-          </div>
+          ${field('#ffffff', c.addrLabel, esc(CONTACT.address))}
+          ${field('#FF9E1B', c.hoursLabel, esc(hoursLine))}
+          ${field('#7AC70C', c.shipLabel, esc(t.ship.text))}
+          ${field('#B57BEE', c.emailLabel, `<a class="ct__mail" href="mailto:${CONTACT.email}">${esc(CONTACT.email)}</a>`)}
           <div class="ct__btns">
-            <a class="btn ct__wa-btn" href="${CONTACT.waLink}" target="_blank" rel="noopener">${waIcon}WhatsApp</a>
-            <a class="btn ct__call-btn" href="${CONTACT.telLink}">${phoneIcon}${esc(c.call)}</a>
+            <a class="btn ct__wa-btn" href="${CONTACT.waLink}" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn ct__call-btn" href="${CONTACT.telLink}">${esc(c.call)}</a>
           </div>
         </div>
         <div class="ct__map-card">
-          <span class="ct__map-chip">${pinIcon}${esc(c.mapChip)}</span>
           <iframe class="ct__map" title="${esc(c.location)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps?q=${mapQ}&output=embed"></iframe>
-          <a class="btn ct__dir-btn" href="${CONTACT.mapsLink}" target="_blank" rel="noopener">${pinIcon}${esc(c.directions)} <span aria-hidden="true">→</span></a>
         </div>
       </div>
       ${contactForm(c.form)}
