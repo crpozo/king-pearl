@@ -66,7 +66,7 @@
           { t: 'Nosotros', d: 'Quiénes somos y por qué confiar en la corona.', href: '#/nosotros' }
         ]
       },
-      cta: { quote: 'Cotiza ahora', flavors: 'Ver sabores', wa: 'WhatsApp' },
+      cta: { quote: 'Comprar ahora', flavors: 'Ver sabores', wa: 'WhatsApp' },
       hero: {
         kicker: 'Burbujas explosivas · Ecuador',
         line: ['Perlas que', 'Explotan'],
@@ -279,7 +279,7 @@
           { t: 'About us', d: 'Who we are and why to trust the crown.', href: '#/nosotros' }
         ]
       },
-      cta: { quote: 'Get a quote', flavors: 'See flavors', wa: 'WhatsApp' },
+      cta: { quote: 'Buy now', flavors: 'See flavors', wa: 'WhatsApp' },
       hero: {
         kicker: 'Bursting bubbles · Ecuador',
         line: ['Pearls that', 'Burst'],

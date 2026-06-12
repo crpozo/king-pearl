@@ -69,10 +69,7 @@
       <div class="hero__center">
         <h1 class="display hero__h">${esc(head[0])}<br />${esc(head[1])}</h1>
         <div class="hero__sub">${(Array.isArray(t.hero.sub) ? t.hero.sub : [t.hero.sub]).map((p) => `<p>${esc(p)}</p>`).join('')}</div>
-        <div class="hero__actions">
-          <span class="hero__badge">${boltIcon}${esc(t.ship.badge)}</span>
-          <a class="hero__cta" href="#sabores">${esc(t.cta.flavors)} <span aria-hidden="true">›</span></a>
-        </div>
+        <a class="hero__cta" href="#sabores">${esc(t.cta.flavors)} <span aria-hidden="true">›</span></a>
       </div>
       <svg class="hero__wave" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
         <path fill="#FFFFFF" d="M0,130 L0,112 C460,112 540,38 720,38 C900,38 980,112 1440,112 L1440,130 Z" />
@@ -651,7 +648,7 @@
             </label>
           </div>
           <div class="ct__form-foot">
-            <button class="btn ct__wa-btn ct__form-send" type="submit">${mailIcon}${esc(f.send)}</button>
+            <button class="btn ct__wa-btn ct__form-send" type="submit">${esc(f.send)}</button>
             <p class="ct__form-note" id="ct-form-status" role="status">${esc(f.note)}</p>
           </div>
         </form>
