@@ -69,13 +69,16 @@
       <div class="hero__center">
         <h1 class="display hero__h">${esc(head[0])}<br />${esc(head[1])}</h1>
         <div class="hero__sub">${(Array.isArray(t.hero.sub) ? t.hero.sub : [t.hero.sub]).map((p) => `<p>${esc(p)}</p>`).join('')}</div>
-        <a class="hero__cta" href="#sabores">${esc(t.cta.flavors)} <span aria-hidden="true">›</span></a>
+        <div class="hero__actions">
+          <span class="hero__badge">${boltIcon}${esc(t.ship.badge)}</span>
+          <a class="hero__cta" href="#sabores">${esc(t.cta.flavors)} <span aria-hidden="true">›</span></a>
+        </div>
       </div>
       <svg class="hero__wave" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
         <path fill="#FFFFFF" d="M0,130 L0,86 C420,86 520,86 612,86 C672,86 686,28 720,28 C754,28 768,86 828,86 C920,86 1020,86 1440,86 L1440,130 Z" />
       </svg>
       <a class="hero__dot" href="#sabores" aria-label="scroll">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>
+        <img src="assets/crown-black.png" alt="" />
       </a>
     </section>`;
   }
@@ -705,12 +708,8 @@
   // --- behaviours -----------------------------------------------------------
   function wireNav() {
     const nv = document.getElementById('nav');
-    // On the home page the bar is transparent over the hero until you scroll;
-    // on inner pages there is no hero, so keep it solid (and legible) always.
-    const home = currentRoute() === '/';
-    const onScroll = () => nv.classList.toggle('nv--solid', !home || window.scrollY > 40);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    // White solid bar on every page (banner design).
+    nv.classList.add('nv--solid');
 
     document.querySelectorAll('[data-lang]').forEach((b) => {
       b.addEventListener('click', () => setLang(b.dataset.lang));
