@@ -1,8 +1,7 @@
 /* King Pearl — brand data + bilingual strings. Exposed on window. */
 (function () {
-  // WordPress build: window.KP_BASE (theme directory URL, trailing slash) is
-  // injected by functions.php before this file loads. Empty base falls back
-  // to plain static hosting where assets/ sits next to the page.
+  // WordPress build: window.KP_BASE (theme directory URL, trailing slash)
+  // is injected by functions.php before this file loads.
   const KP_ASSETS = (window.KP_BASE || '') + 'assets/';
   // Flavor lineup. color = signature hue, deep = darker shade, glow = pearl light.
   const FLAVORS = [

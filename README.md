@@ -30,11 +30,13 @@ The same site is packaged as a classic WordPress theme in [`wordpress/king-pearl
 
 The theme serves the exact same app (`data.js` + `app.js` rendering into `#root`), so content — flavors, ES/EN copy, contact details — is still edited in the theme's `data.js`, not the WP editor. Details in [`wordpress/king-pearl/readme.txt`](wordpress/king-pearl/readme.txt).
 
-Rebuild the zip after editing theme files:
+The theme's `data.js`, `app.js`, `style.css` and `assets/` are **generated** from the static-site sources at the repo root. After editing those (or the images), regenerate the theme and the zip with:
 
 ```bash
-cd wordpress && rm -f king-pearl.zip && zip -r king-pearl.zip king-pearl
+./wordpress/build-theme.sh
 ```
+
+The PHP templates (`functions.php`, `index.php`, …) are edited in place under `wordpress/king-pearl/`; rerun the script afterwards so the zip picks them up.
 
 ## Placeholders to swap
 

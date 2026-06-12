@@ -584,10 +584,6 @@
       </div>
       <div class="wrap ct__loc reveal">
         <div class="ct__card">
-          <figure class="ct__photo">
-            <img src="assets/local-entrada.jpg" alt="Fachada de Autos Sierra — entrada a King Pearl" loading="lazy" />
-            <figcaption>${esc(c.access)}</figcaption>
-          </figure>
           ${field('#ffffff', c.addrLabel, esc(CONTACT.address))}
           ${field('#FF9E1B', c.hoursLabel, esc(hoursLine))}
           ${field('#7AC70C', c.shipLabel, esc(t.ship.text))}
@@ -602,15 +598,21 @@
             src="https://www.google.com/maps?q=${mapQ}&output=embed"></iframe>
         </div>
       </div>
-      ${contactForm(c.form)}
+      ${contactForm(c)}
     </section>`;
   }
 
-  // Static site: submissions go to CONTACT.email through FormSubmit's AJAX API.
-  function contactForm(f) {
+  // Storefront photo + form side by side on the white band; submissions go
+  // to CONTACT.email through FormSubmit's AJAX API.
+  function contactForm(c) {
+    const f = c.form;
     return `
       <div class="ct__form-band">
       <div class="wrap ct__form-wrap reveal">
+        <figure class="ct__form-photo">
+          <img src="assets/local-entrada.jpg" alt="Fachada de Autos Sierra — entrada a King Pearl" loading="lazy" />
+          <figcaption>${esc(c.access)}</figcaption>
+        </figure>
         <form class="ct__form" id="ct-form">
           <div class="ct__form-head">
             <h3 class="ct__form-title">${esc(f.title)}</h3>
@@ -618,20 +620,20 @@
           </div>
           <div class="ct__form-grid">
             <label class="ct__fld">
-              <span class="ct__fld-lbl">${esc(f.name)}</span>
+              <span class="sr-only">${esc(f.name)}</span>
               <input class="ct__in" name="name" type="text" placeholder="${esc(f.namePh)}" required autocomplete="name" maxlength="80" />
             </label>
             <label class="ct__fld">
-              <span class="ct__fld-lbl">${esc(f.reach)}</span>
-              <input class="ct__in" name="reach" type="text" placeholder="${esc(f.reachPh)}" required maxlength="120" />
+              <span class="sr-only">${esc(f.reach)}</span>
+              <input class="ct__in" name="reach" type="text" placeholder="${esc(f.reach)}" required maxlength="120" />
             </label>
             <label class="ct__fld">
-              <span class="ct__fld-lbl">${esc(f.biz)} <em>${esc(f.bizOpt)}</em></span>
-              <input class="ct__in" name="biz" type="text" placeholder="${esc(f.bizPh)}" autocomplete="organization" maxlength="80" />
+              <span class="sr-only">${esc(f.biz)} ${esc(f.bizOpt)}</span>
+              <input class="ct__in" name="biz" type="text" placeholder="${esc(f.biz)} ${esc(f.bizOpt)}" autocomplete="organization" maxlength="80" />
             </label>
             <label class="ct__fld ct__fld--full">
-              <span class="ct__fld-lbl">${esc(f.msg)}</span>
-              <textarea class="ct__in ct__ta" name="msg" rows="4" placeholder="${esc(f.msgPh)}" required maxlength="600"></textarea>
+              <span class="sr-only">${esc(f.msg)}</span>
+              <textarea class="ct__in ct__ta" name="msg" rows="5" placeholder="${esc(f.msgPh)}" required maxlength="600"></textarea>
             </label>
           </div>
           <div class="ct__form-foot">
