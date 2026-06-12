@@ -22,6 +22,20 @@ python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
+## WordPress theme
+
+The same site is packaged as a classic WordPress theme in [`wordpress/king-pearl/`](wordpress/king-pearl/), with a ready-to-upload zip at [`wordpress/king-pearl.zip`](wordpress/king-pearl.zip).
+
+**Install:** WP admin → Appearance → Themes → Add New → Upload Theme → choose `king-pearl.zip` → Activate. No plugins or extra configuration needed.
+
+The theme serves the exact same app (`data.js` + `app.js` rendering into `#root`), so content — flavors, ES/EN copy, contact details — is still edited in the theme's `data.js`, not the WP editor. Details in [`wordpress/king-pearl/readme.txt`](wordpress/king-pearl/readme.txt).
+
+Rebuild the zip after editing theme files:
+
+```bash
+cd wordpress && rm -f king-pearl.zip && zip -r king-pearl.zip king-pearl
+```
+
 ## Placeholders to swap
 
 - Contact details: WhatsApp `+593 99 000 0000`, `hola@kingpearl.ec`, `@kingpearl.ec`
