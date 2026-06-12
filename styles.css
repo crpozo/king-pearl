@@ -517,12 +517,12 @@ body.no-motion .phero__pearl{animation:none}
 .rv__who b{color:var(--green-ink);font-weight:800}
 .rv__who span{color:var(--ink-soft);font-size:14px;font-weight:600}
 
-.ct{padding:clamp(82px,9vw,118px) 0 0;background:var(--green-deep);color:#fff;overflow:hidden}
+.ct{padding:clamp(44px,4.5vw,58px) 0 0;background:var(--green-deep);color:#fff;overflow:hidden}
 /* header row: title + open/closed status */
-.ct__top2{display:flex;flex-direction:column;align-items:flex-start;gap:16px;text-align:left}
+.ct__top2{display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left}
 .ct__eye{display:inline-flex;align-items:center;gap:.5em;font-weight:800;letter-spacing:.14em;
   text-transform:uppercase;font-size:12.5px;color:rgba(255,255,255,.66)}
-.ct__h{font-size:clamp(30px,3.6vw,52px);margin-top:12px;color:#fff;line-height:1.05}
+.ct__h{font-size:clamp(26px,3vw,40px);margin-top:8px;color:#fff;line-height:1.05}
 .ct__status{display:inline-flex;align-items:center;gap:.55em;font-weight:800;font-size:13.5px;
   padding:.55em 1.05em;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07)}
 .ct__dot{width:9px;height:9px;border-radius:50%}
@@ -531,12 +531,12 @@ body.no-motion .phero__pearl{animation:none}
 .ct__status.is-closed{color:#ffb4b4}
 .ct__status.is-closed .ct__dot{background:#ff6b6b;box-shadow:0 0 0 4px rgba(255,107,107,.22)}
 /* two cards: info + map */
-.ct__loc{margin-top:clamp(28px,3.5vw,44px);display:grid;grid-template-columns:1.15fr 0.85fr;
+.ct__loc{margin-top:clamp(16px,1.8vw,22px);display:grid;grid-template-columns:1.15fr 0.85fr;
   gap:clamp(26px,3vw,48px);align-items:stretch;text-align:left}
-.ct__card{display:flex;flex-direction:column;gap:clamp(16px,1.7vw,22px)}
+.ct__card{display:flex;flex-direction:column;gap:clamp(12px,1.2vw,15px)}
 .ct__map-card{background:#fff;border-radius:24px}
 .ct__photo{position:relative;margin:0;border-radius:16px;overflow:hidden}
-.ct__photo img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:center 64%}
+.ct__photo img{width:100%;display:block;aspect-ratio:5/2;object-fit:cover;object-position:center 64%}
 .ct__photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;font-size:13px;
   font-weight:700;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.72),transparent)}
 .ct__field{display:flex;align-items:flex-start;gap:16px}
@@ -548,8 +548,8 @@ body.no-motion .phero__pearl{animation:none}
 .ct__hours{display:flex;flex-direction:column;gap:9px}
 .ct__hrow{display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:15.5px;color:rgba(255,255,255,.82)}
 .ct__hrow b{color:#fff;font-weight:800;white-space:nowrap}
-.ct__btns{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:4px}
-.ct__wa-btn,.ct__call-btn{padding:.95em 1.3em}
+.ct__btns{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:2px}
+.ct__wa-btn,.ct__call-btn{padding:.85em 1.3em}
 .ct__wa-btn{justify-content:center;background:var(--accent);color:#fff}
 .ct__wa-btn svg{width:20px;height:20px}
 .ct__wa-btn:hover{box-shadow:0 14px 30px -10px var(--accent)}
@@ -565,7 +565,7 @@ body.no-motion .phero__pearl{animation:none}
   background:#fff;color:var(--green-ink);font-size:16px}
 .ct__dir-btn:hover{box-shadow:0 16px 32px -12px rgba(0,0,0,.5)}
 /* intro note under the title */
-.ct__thanks{max-width:70ch;margin:0;font-size:clamp(15px,1.3vw,18px);line-height:1.65;
+.ct__thanks{max-width:64ch;margin:0;font-size:clamp(13.5px,1.05vw,15px);line-height:1.6;
   color:rgba(255,255,255,.82);font-weight:600}
 /* contact form → WhatsApp */
 .ct__form-band{margin-top:clamp(40px,5vw,72px);background:#fff;
