@@ -69,7 +69,6 @@
       <div class="hero__center">
         <h1 class="display hero__h">${esc(head[0])}<br />${esc(head[1])}</h1>
         <div class="hero__sub">${(Array.isArray(t.hero.sub) ? t.hero.sub : [t.hero.sub]).map((p) => `<p>${esc(p)}</p>`).join('')}</div>
-        <span class="hero__badge">${boltIcon}${esc(t.ship.badge)}</span>
         <a class="hero__cta" href="#sabores">${esc(t.cta.flavors)} <span aria-hidden="true">›</span></a>
       </div>
       <svg class="hero__wave" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
