@@ -75,7 +75,7 @@
         </div>
       </div>
       <svg class="hero__wave" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="#FFFFFF" d="M0,130 L0,86 C420,86 520,86 612,86 C672,86 686,28 720,28 C754,28 768,86 828,86 C920,86 1020,86 1440,86 L1440,130 Z" />
+        <path fill="#FFFFFF" d="M0,130 L0,112 C460,112 540,38 720,38 C900,38 980,112 1440,112 L1440,130 Z" />
       </svg>
       <a class="hero__dot" href="#sabores" aria-label="scroll">
         <img src="assets/crown-black.png" alt="" />
@@ -97,7 +97,7 @@
         ${sub ? `<p class="phero__sub">${esc(sub)}</p>` : ''}
       </div>
       <svg class="hero__wave" viewBox="0 0 1440 130" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="#FFFFFF" d="M0,130 L0,86 C420,86 520,86 612,86 C672,86 686,28 720,28 C754,28 768,86 828,86 C920,86 1020,86 1440,86 L1440,130 Z" />
+        <path fill="#FFFFFF" d="M0,130 L0,112 C460,112 540,38 720,38 C900,38 980,112 1440,112 L1440,130 Z" />
       </svg>
     </section>`;
   }
