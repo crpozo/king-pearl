@@ -538,16 +538,12 @@
     const slogan = esc(w.slogan).replace(/([^\s.!?]+)([.!?]*)$/, '<span class="why__hl">$1</span>$2');
     return `
     <section class="why" id="por-que">
-      <div class="wrap">
-        <div class="why__panel reveal">
-          <div class="why__head">
-            <span class="eyebrow reveal"><span class="sq"></span>${esc(w.eyebrow)}</span>
-            <h2 class="display sec-title reveal d1">${esc(w.title)}</h2>
-          </div>
-          <div class="why__rows">${rows}</div>
-          <p class="display why__slogan">“${slogan}”</p>
-        </div>
+      <div class="why__head reveal">
+        <span class="eyebrow"><span class="sq"></span>${esc(w.eyebrow)}</span>
+        <h2 class="display sec-title">${esc(w.title)}</h2>
       </div>
+      <div class="why__rows">${rows}</div>
+      <p class="display why__slogan reveal">“${slogan}”</p>
     </section>`;
   }
 
