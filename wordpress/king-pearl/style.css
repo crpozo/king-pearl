@@ -505,15 +505,6 @@ body.no-motion .phero__pearl{animation:none}
 .st__l{display:block;margin-top:8px;font-weight:700;color:var(--ink-soft);font-size:15px}
 
 /* ---------------- CONTACT + FOOTER (deep purple) ---------------- */
-/* delivery strip — pulled up into the lineup section's bottom padding */
-.ship{background:var(--green-deep);color:#fff;padding:0 0 30px;margin-top:calc(clamp(44px,5vw,86px) * -1)}
-.ship__inner{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center}
-.ship__badge{display:inline-flex;align-items:center;gap:.5em;background:#fff;color:var(--green-deep);
-  font-weight:800;padding:.55em 1.15em;border-radius:999px;font-size:13.5px;
-  text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
-.ship__badge svg{width:15px;height:15px}
-.ship__text{display:inline-flex;align-items:center;gap:.6em;font-weight:700;font-size:clamp(15px,1.4vw,18px)}
-.ship__text svg{width:20px;height:20px;flex:0 0 auto}
 
 /* why choose us — full-width numbered color bands (edge to edge) */
 .why{background:#fff}

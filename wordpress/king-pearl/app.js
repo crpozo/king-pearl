@@ -508,21 +508,8 @@
   const pinIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>`;
   const clockIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>`;
   const phoneIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2 2.2A16 16 0 0 1 4.3 5.5a2 2 0 0 1 2.2-2Z"/></svg>`;
-  const truckIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 7h12v9H2z"/><path d="M14 10h4l3.2 3.2V16H14"/><circle cx="6.2" cy="17.8" r="1.9"/><circle cx="17.2" cy="17.8" r="1.9"/></svg>`;
   const mailIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7.5 8 5.7 8-5.7"/></svg>`;
-  const boltIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>`;
   const starIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.4-5.8-3-5.8 3 1.1-6.4L2.6 9.4l6.5-.9L12 2.6z"/></svg>`;
-
-  // Full-width delivery strip: 24h badge + nationwide shipping note.
-  function shipBar(t) {
-    return `
-    <section class="ship">
-      <div class="wrap ship__inner reveal">
-        <span class="ship__badge">${boltIcon}${esc(t.ship.badge)}</span>
-        <p class="ship__text">${truckIcon}<span>${esc(t.ship.text)}</span></p>
-      </div>
-    </section>`;
-  }
 
   function whySec(t) {
     const w = t.why;
@@ -769,7 +756,7 @@
   }
 
   // --- pages ----------------------------------------------------------------
-  const pageHome = (t) => hero(t) + whatare(t) + productLineup(t) + shipBar(t) + whySec(t) + reviewsSec(t) + usagePreview(t) + contactSection(t);
+  const pageHome = (t) => hero(t) + whatare(t) + productLineup(t) + whySec(t) + reviewsSec(t) + usagePreview(t) + contactSection(t);
   const pageUsos = (t) => pageBanner(t.usage.tag, t.usage.title, t.usage.intro) + usage(t, true) + care(t);
   const pageRecetas = (t) => pageBanner(t.recipes.tag, t.recipes.title, t.recipes.intro) + recipes(t, true);
   const pageNosotros = (t) => pageBanner(t.about.tag, t.about.pageTitle, t.about.pageSub) + about(t) + features(t) + biz(t) + contactSection(t);
