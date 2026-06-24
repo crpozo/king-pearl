@@ -11,7 +11,7 @@
  * @package King_Pearl
  */
 
-define( 'KING_PEARL_VERSION', '1.0.0' );
+define( 'KING_PEARL_VERSION', '1.0.1' );
 
 /**
  * Theme supports.

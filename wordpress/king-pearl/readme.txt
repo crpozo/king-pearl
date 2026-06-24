@@ -3,7 +3,7 @@ Contributors: kingpearl
 Requires at least: 5.9
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,9 @@ de `wp-content/themes/`.
   uno, el tema usa la corona negra por defecto).
 
 == Changelog ==
+
+= 1.0.1 =
+* Renombra el selector de idioma de la clase generica .lang a .kp-lang (y data-lang a data-kp-lang) para evitar que plugins que seleccionan .lang sobrescriban el toggle ES/EN y muestren [object Object].
 
 = 1.0.0 =
 * Primera versión: empaqueta la landing estática de King Pearl como tema de
