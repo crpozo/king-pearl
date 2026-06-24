@@ -118,13 +118,13 @@ body.no-motion .wafab{animation:none}
 .nv__links a:hover::after,.nv__links a.on::after{right:0}
 .nv__links a.on{color:var(--accent)}
 .nv__right{display:flex;align-items:center;gap:18px}
-.lang{display:inline-flex;align-items:center;gap:3px;padding:3px;border-radius:999px;
+.kp-lang{display:inline-flex;align-items:center;gap:3px;padding:3px;border-radius:999px;
   font-weight:800;font-size:13px;border:1.6px solid rgba(255,255,255,.45)}
-.lang button{padding:5px 12px;border-radius:999px;line-height:1;color:rgba(255,255,255,.82);transition:background .2s,color .2s}
-.lang button.on{background:#fff;color:var(--brand)}
-.nv--solid .lang{border-color:transparent;background:#f2ebf1}
-.nv--solid .lang button{color:var(--ink-soft)}
-.nv--solid .lang button.on{background:#fff;color:var(--ink);box-shadow:0 1px 5px rgba(36,24,38,.18)}
+.kp-lang button{padding:5px 12px;border-radius:999px;line-height:1;color:rgba(255,255,255,.82);transition:background .2s,color .2s}
+.kp-lang button.on{background:#fff;color:var(--brand)}
+.nv--solid .kp-lang{border-color:transparent;background:#f2ebf1}
+.nv--solid .kp-lang button{color:var(--ink-soft)}
+.nv--solid .kp-lang button.on{background:#fff;color:var(--ink);box-shadow:0 1px 5px rgba(36,24,38,.18)}
 .nv__cta{display:inline-flex;align-items:center;font-weight:800;font-size:14px;padding:.78em 1.4em;border-radius:999px;
   background:#fff;color:var(--brand);transition:transform .3s var(--ease),background .3s,color .3s;white-space:nowrap}
 .nv__cta:hover{transform:translateY(-2px)}

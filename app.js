@@ -44,9 +44,9 @@
         <nav class="nv__links">${linkHtml}</nav>
         <a href="#/" class="nv__brand"><img src="assets/kp-logo.png" alt="King Pearl" /></a>
         <div class="nv__right">
-          <div class="lang">
-            <button data-lang="es" class="${lang === 'es' ? 'on' : ''}">ES</button>
-            <button data-lang="en" class="${lang === 'en' ? 'on' : ''}">EN</button>
+          <div class="kp-lang">
+            <button data-kp-lang="es" class="${lang === 'es' ? 'on' : ''}">ES</button>
+            <button data-kp-lang="en" class="${lang === 'en' ? 'on' : ''}">EN</button>
           </div>
           <a class="nv__cta" href="${CONTACT.waLink}" target="_blank" rel="noopener">${esc(t.cta.quote)}</a>
           <button class="nv__burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
@@ -683,8 +683,8 @@
     // White solid bar on every page (banner design).
     nv.classList.add('nv--solid');
 
-    document.querySelectorAll('[data-lang]').forEach((b) => {
-      b.addEventListener('click', () => setLang(b.dataset.lang));
+    document.querySelectorAll('[data-kp-lang]').forEach((b) => {
+      b.addEventListener('click', () => setLang(b.dataset.kpLang));
     });
 
     const burger = document.getElementById('burger');
